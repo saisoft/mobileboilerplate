@@ -1,0 +1,62 @@
+<div id="page-wrapper" style="min-height: 800px;">
+    <span ng-show="user.badCrd" class="alert alert-warning col-md-12">{{'BAD_CREDENTIALS'|translate}}</span>
+    <div ng-show="user.badCrd === true || user.badCrd === 'true'" id="login-alert" class="alert alert-danger col-md-12">{{'BAD_CREDENTIALS'| translate}}</div>
+    <div id="loginbox" class="mainbox col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-sm-12">                    
+        <div class="panel panel-primary" style="margin-top: 27px;">
+            <div class="panel-heading">
+                <div class="panel-title">{{'VERIFY_CODE'| translate}}</div>
+            </div> 
+            <form id="loginform" name="login" class="form-horizontal">
+                <div style="padding-top:15px" class="panel-body">                
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input ng-pattern="/^[0-9\s]{6}$/" autofocus required title="{{'TITLE_CODE'|translate}}" type="text" id="code" name="code" ng-model="user.code" placeholder="{{'VER_CODE'| translate}}" class="form-control" />
+                    </div>
+                    
+              <div class="row">
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    <div style="margin-top: 15px"> 
+                                <img src="api/captcha" />
+                                    </div>
+                                </div>
+                                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                    <div style="margin-top: 15px"> 
+                                <input type="text" required placeholder="Captcha" ng-model="user.captcha" class="form-control" title="9 digits alpha numeric" id="resume_headline" name="captcha" ng-pattern="/^[a-zA-Z0-9\s]{9}$/" />
+                                        <div class="angError" ng-show="login.captcha.$dirty && login.captcha.$error.required">
+                                            {{'CAP_REQ'| translate}}</div>
+                                        <div class="angError" ng-show="login.captcha.$dirty && login.captcha.$invalid">
+                                            {{'CAP_INV'| translate}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                    <div style="margin-top:15px" class="form-group">
+                        <!-- Button -->
+                        <div class="col-sm-12 controls">
+                            <a id="btn-login" class="btn btn-primary" ng-disabled="login.$invalid" ng-click="verify()">{{'VERIFY'| translate}}  </a>
+</div>
+                    </div>
+
+                </div>  
+            </form>
+        </div> 
+        <p class="text-center">{{'COPY_RIGHT'|translate}}</p>
+    </div>
+    <div class="imgs col-lg-12 col-sm-12 hidden-xs text-center">
+        <img width="60" height="60" alt="apple" src="img/android.jpg">
+        <img width="60" height="60" alt="apple" src="img/apple.jpg">
+        <img width="60" height="60" alt="apple" src="img/angularjs.jpg">
+        <img width="60" height="60" alt="apple" src="img/php.jpg">
+        <img width="60" height="60" alt="apple" src="img/java.jpg">    
+        <img width="60" height="60" alt="apple" src="img/html5.png">
+        <img width="60" height="60" alt="apple" src="img/spring.png">
+        <img width="60" height="60" alt="apple" src="img/hibernate.png">
+        <img width="60" height="60" alt="apple" src="img/phonegap.png">
+        <img width="60" height="60" alt="apple" src="img/mongodb.png">
+        <img width="60" height="60" alt="apple" src="img/selenium.png">
+        <img width="60" height="60" alt="apple" src="img/ajax.png">
+        <img width="60" height="60" alt="apple" src="img/jquery.png">
+        <img width="60" height="60" alt="apple" src="img/boot.png">
+    </div>                                                                              
+    <!-- /. PAGE INNER  -->
+</div>

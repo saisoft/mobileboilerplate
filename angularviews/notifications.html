@@ -1,0 +1,86 @@
+<div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <div class="btn-group btn-breadcrumb">
+            <a href="#/home" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+
+            <a href="#/Employees" class="btn btn-default">{{'Employee'| translate}}</a>
+            
+        </div>
+              </div>
+
+              <div class="title_right" style="margin-top: -11px;">
+                <div class="col-md-6 col-sm-6 col-xs-10 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">Go!</button>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel" style="height:600px;">
+                  <div class="x_title">
+                    <h2>Plain Page</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                    
+                    <p ng-show="noDataFound" role="alert" class="alert alert-success alert-dismissible fade in">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+                        <strong> {{'NO_TOPIC' | translate}}</strong>
+                        </p>
+              <div ng-show="notifications.length > 0" class="table-responsive">
+                    <table class="table table-bordred table-striped">
+                        <thead>
+                            <tr>
+                                <th>{{'SRNO'|translate}}</th>
+                                <th>{{'TYPE'|translate}}</th>
+                                <th>{{'RES_URL'|translate}}</th>
+                                <th>{{'FRM'|translate}}</th>
+                                <th>{{'MSG'|translate}}</th>
+                                <!--                                <th>{{'ACTIONS'|translate}}</th>-->
+                            </tr></thead>
+                        <tbody>
+                            <tr ng-repeat="notify in notifications| filter: searchText">
+                                <td>{{$index+1 }} <i ng-show="notify.status=='U'" class="badge newone">new</i></td>
+                                <td><i class="fa fa-info-circle fa-2x text-warning"></i></td>
+                                <td><a class="clickable" ng-click='goTores(notify)'>Click here to view resource</a></td>
+
+                                <td>{{notify.firstname}} {{notify.lastname}} {{notify.company}}</td>
+                                <td ng-show="notify.type==='testrequest'">{{'GOT_TEST_REQ_FOR' | translate}} {{notify.topicname}}</td>
+                                <td ng-show="notify.type==='declinetest'">{{'TEST_DECLINE' | translate}} {{notify.topicname}}</td>
+                                <td ng-show="notify.type==='testcomplete'">{{'TEST_COMPLETE' | translate}} {{notify.topicname}}</td>
+                                <!--                                <td><a ng-click="editTopic(topic)" data-placement="top" class="btn btn-info btn-sm"><span class="fa fa-edit"></span></a>
+                                                                    &nbsp;
+                                                                    <a ng-click="deleteTopic(topic)" data-placement="top" class="btn btn-warning btn-sm"><span class="fa fa-times"></span></a></td>
+                                -->                   
+                            </tr>
+                        </tbody>
+                    </table>                    
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>        

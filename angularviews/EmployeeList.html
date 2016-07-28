@@ -1,0 +1,170 @@
+<div class="maximus">
+<span class="popupMsg"></span>
+            <div class="page-title">
+              <div class="title_left">
+			  			  <div class="btn-group btn-breadcrumb">
+            <a href="#/home" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+
+            <a href="#/Employees" class="btn btn-default">{{'Employee'| translate}}</a>
+            
+        </div>
+                
+            
+            </div>
+			
+						            <div class="col-md-2 col-sm-2 col-xs-3 form-group pull-right top_search">
+									<ul class="nav navbar-right panel_toolbox">
+            <li>
+                <a style="color:rgb(176, 192, 195);" title="{{'CHANGE_VIEW'|translate}}" ng-click="changeView()"><i class="fa clickable fa fa-{{view}}"></i> </a>
+            </li>
+        
+                      
+                      <!--li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li-->
+                      <li>               
+                        <a style="color:rgb(176, 192, 195);" ng-show="showDeleteIcon" ng-click="deleteSelectedEmployees()"><i class="fa clickable fa-trash-o"></i></a>       
+                      </li>
+                     
+                    </ul>
+                    <div class="clearfix"></div>
+					</div>
+			
+                <div class="col-md-4 col-sm-4 col-xs-3 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input id="txtSearchPagePlugin" ng-model="searchText" placeholder="{{'FILTER'|translate}}" type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button ng-click="resetSearch()" class="btn btn-default" type="button">X</button>
+                          </span>
+                  </div>
+                </div>
+              
+			</div>
+            <div class="clearfix"></div>
+			
+
+
+           
+            
+
+            
+
+       <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+	<div class="clearfix"></div>
+            <p ng-show="noDataFound" class="alert alert-info text-center">{{'NO_DATA_FOUND'| translate}}</p>
+            <div ng-show="view === 'list' && !noDataFound">
+            <div ng-repeat="Employee in Employees| filter: searchText | filter :{Employeename : Employeename}| orderBy:order:reverse" class="col-md-4 col-sm-4 col-xs-12 profile_details time-entry">
+                     
+                        <div class="well profile_view">
+                          <div class="col-sm-12">
+                            <h5 class="brief"><i>Employee</i></h5>
+                            <div class="left col-xs-7">
+                              <h2>Nicole Pearson</h2>
+		
+<p class="minheight100px desc">'<small>{{Employee.firstname}}</small>'</p>
+                              <p><strong>About: </strong> Web Designer / UX  </p>
+                              <ul class="list-unstyled">
+                                <li><i class="fa fa-building"></i> Address: </li>
+                                <li><i class="fa fa-phone"></i> Phone #: </li>
+                              </ul>
+                            </div>
+                            <div class="right col-xs-5 text-center">
+                              <img height="103" width="103" src="img/user.png" alt="" class="img-circle img-responsive">
+                            </div>
+                          </div>
+                          <div class="col-xs-12 bottom text-center">
+                            <div class="col-xs-12 col-sm-6 emphasis">
+                              <p class="ratings">
+                                <a>4.0</a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star"></span></a>
+                                <a href="#"><span class="fa fa-star-o"></span></a>
+                              </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 emphasis">
+                                     <p>
+                                             <a ng-click="viewEmployee(Employee)" title="{{'VIEW'|translate}}" ><i class="fa fa-2x fa-eye"></i></a> &nbsp;
+                            <a ng-click="editEmployee(Employee)" title="{{'EDIT'|translate}}" ><i class="fa fa-2x fa-edit"></i></a> &nbsp;
+                            <a ng-click="deleteEmployee(Employee)" title="{{'DELETE'|translate}}" ><i class="fa fa-2x fa-times"></i></a>
+                        </p>
+                            </div>
+                          </div>
+                        
+                      </div>
+            
+                    
+                    
+        
+            </div>
+            <div class="col-md-12">
+            <pagination ng-hide="noDataFound" total-items="bigTotalItems" items-per-page = "maxRowNumbers" page="bigCurrentPage" max-size="maxSize" on-select-page="pageChanged(page)" ng-model="bigCurrentPage" class="pagination-sm" boundary-links="true"></pagination>
+            </div>
+            </div>
+            <div ng-show="view === 'th-large' && !noDataFound"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12 time-entry">
+                <div  ng-show="Employees.length > 0" class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="checkall" ng-click="selectAll(isAllselected)" ng-model="isAllselected"><label class="lbl padding-12" for="checkall"></label></th>
+                               
+		
+<th sort by="order" reverse="reverse" order="'firstname'">{{'FIRST_NAME' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'lastname'">{{'LAST_NAME' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'addr'">{{'ADDRESS' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'accountno'">{{'ACCOUNT_NUMBER' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'exp'">{{'EXPERIENCE' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'salary'">{{'SALARY' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'dob'">{{'DATE_OF_BIRTH' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'age'">{{'AGE' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'email'">{{'EMAIL_ADDRESS' | translate }}</th>
+		<th sort by="order" reverse="reverse" order="'gender'">{{'GENDER' | translate }}</th>
+	                 <th>{{'ACTIONS'|translate}}</th>
+                            </tr></thead>
+                        <tbody>
+                            <tr ng-repeat="Employee in Employees| filter: searchText | filter :{topicname : topicname} | orderBy:order:reverse">
+                                <td><input type="checkbox" ng-click="selectedToDelete(Employee)" ng-model="Employee.isSelected" id="selectEmployee{{$index}}" class="checkthis"><label class="lbl padding-12" for="selectEmployee{{$index}}"></label></td>
+                                                              
+		
+<td>{{Employee.firstname}}</td>
+		<td>{{Employee.lastname}}</td>
+		<td>{{Employee.addr}}</td>
+		<td>{{Employee.accountno}}</td>
+		<td>{{Employee.exp}}</td>
+		<td>{{Employee.salary}}</td>
+		<td>{{Employee.dob}}</td>
+		<td>{{Employee.age}}</td>
+		<td>{{Employee.email}}</td>
+		<td>{{Employee.gender}}</td>
+		
+                                <td><a ng-click="viewEmployee(Employee)" title="{{'EDIT'|translate}}" data-placement="top" ><span class="clickable fa fa-2x fa-eye"></span></a>
+                                    &nbsp;
+                                    <a ng-click="editEmployee(Employee)" title="{{'EDIT'|translate}}" data-placement="top"><span class="clickable fa fa-2x fa-edit"></span></a>
+                                    &nbsp;
+                                    <a ng-click="deleteEmployee(Employee)" title="{{'DELETE'|translate}}" data-placement="top"><span class="clickable fa fa-2x fa-times"></span></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="clearfix"></div>
+                    <pagination ng-hide="noDataFound" total-items="bigTotalItems" items-per-page = "maxRowNumbers" page="bigCurrentPage" max-size="maxSize" on-select-page="pageChanged(page)" ng-model="bigCurrentPage" class="pagination-sm" boundary-links="true"></pagination>
+                </div>
+               
+                           
+            </div>
+        </div>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>
+</div>
+<!-- /. PAGE WRAPPER  -->

@@ -1,0 +1,695 @@
+
+body {
+    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    overflow-x: hidden;
+}
+#companyLogo {
+    float: left;
+    position: relative;
+    top: -10px;
+}
+#mambo {
+    color: #fed136;
+    float: left;
+    font-family: Georgia;
+    font-size: 46px;
+    font-weight: bolder;
+    left: -10px;
+    margin: 20px;
+    position: relative;
+    width: 160px;
+}
+#companySubName {
+    color: #eee;
+    float: left;
+    font-family: Georgia;
+    font-size: 35px;
+    font-weight: bolder;
+    left: -10px;
+    position: relative;
+    top: 24px;
+    width: 250px;
+}
+#companyMoto {
+    color: #eee;
+    float: left;
+    font-family: Georgia;
+    font-size: 11px;
+    font-weight: bolder;
+    left: -192px;
+    position: relative;
+    top: 52px;
+    width: 250px;
+}
+.aboutHeading {
+    color: orange;
+    font-size: 20px;
+}
+.aboutContent p {
+    font-size: 16px;
+    font-weight: initial;
+    margin-bottom: 10px;
+    text-align: justify;
+    text-transform: none;
+}
+.imgs image {
+    float: left;
+    position: absolute;
+}
+.imgs {
+    background-color: rgb(241, 225, 243);
+    border-radius: 6px;
+    padding: 9px;
+}
+.text-muted {
+    color: #777;
+}
+.font18 {
+    font-size: 18px;
+}
+.text-primary {
+    color: #fed136;
+}
+p {
+    font-size: 14px;
+    line-height: 1.75;
+}
+p.large {
+    font-size: 16px;
+}
+a, a:hover, a:focus, a:active, a.active {
+    outline: 0 none;
+}
+a {
+    color: #fed136;
+}
+a:hover, a:focus, a:active, a.active {
+    color: #fec503;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    
+}
+.img-centered {
+    margin: 0 auto;
+}
+.bg-light-gray {
+    background-color: #c5ddc5;
+}
+.bg-darkest-gray {
+    background-color: #222;
+}
+.btn-primary {
+    background-color: #fed136;
+    border-color: #fed136;
+    color: #fff;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    background-color: #fec503;
+    border-color: #f6bf01;
+    color: #fff;
+}
+.btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    background-image: none;
+}
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary.active[disabled], fieldset[disabled] .btn-primary.active {
+    background-color: #fed136;
+    border-color: #fed136;
+}
+.btn-primary .badge {
+    background-color: #fff;
+    color: #fed136;
+}
+.btn-xl {
+    background-color: #fed136;
+    border-color: #fed136;
+    border-radius: 3px;
+    color: #fff;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 27px;
+    padding: 20px 40px;
+    text-transform: uppercase;
+}
+.btn-xl:hover, .btn-xl:focus, .btn-xl:active, .btn-xl.active, .open .dropdown-toggle.btn-xl {
+    background-color: #fec503;
+    border-color: #f6bf01;
+    color: #fff;
+}
+.btn-xl:active, .btn-xl.active, .open .dropdown-toggle.btn-xl {
+    background-image: none;
+}
+.btn-xl.disabled, .btn-xl[disabled], fieldset[disabled] .btn-xl, .btn-xl.disabled:hover, .btn-xl[disabled]:hover, fieldset[disabled] .btn-xl:hover, .btn-xl.disabled:focus, .btn-xl[disabled]:focus, fieldset[disabled] .btn-xl:focus, .btn-xl.disabled:active, .btn-xl[disabled]:active, fieldset[disabled] .btn-xl:active, .btn-xl.disabled.active, .btn-xl.active[disabled], fieldset[disabled] .btn-xl.active {
+    background-color: #fed136;
+    border-color: #fed136;
+}
+.btn-xl .badge {
+    background-color: #fff;
+    color: #fed136;
+}
+.navbar-default {
+    background-color: #222;
+    border-color: #555;
+}
+.navbar-default .navbar-brand {
+    color: #fed136;
+    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:active, .navbar-default .navbar-brand.active {
+    color: #fec503;
+}
+.navbar-default .navbar-collapse {
+    border-color: rgba(255, 255, 255, 0.02);
+}
+.navbar-default .navbar-toggle {
+    background-color: #fed136;
+    border-color: #fed136;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #fed136;
+}
+.navbar-default .nav li a {
+    color: #fff;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.navbar-default .nav li a:hover, .navbar-default .nav li a:focus {
+    color: #fed136;
+    outline: 0 none;
+}
+.navbar-default .navbar-nav > .active > a {
+    background-color: #fed136;
+    border-radius: 0;
+    color: #fff;
+}
+.navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #fec503;
+    color: #fff;
+}
+@media (min-width: 768px) {
+.navbar-default {
+    background-color: #555;
+    border: 0 none;
+    padding: 25px 0;
+    transition: padding 0.3s ease 0s;
+}
+.navbar-default .navbar-brand {
+    font-size: 2em;
+    transition: all 0.3s ease 0s;
+}
+.navbar-default .navbar-nav > .active > a {
+    border-radius: 3px;
+}
+.navbar-default.navbar-shrink {
+    background-color: #555;
+    padding: 10px 0;
+}
+.navbar-default.navbar-shrink .navbar-brand {
+    font-size: 1.5em;
+}
+}
+header {
+    background-attachment: scroll;
+    background-color: rgb(138, 201, 171);
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+header .intro-text {
+    padding-bottom: 50px;
+    padding-top: 207px;
+}
+header .intro-text .intro-lead-in {
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 25px;
+    font-style: italic;
+    line-height: 22px;
+    margin-bottom: 25px;
+}
+header .intro-text .intro-heading {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    line-height: 50px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+@media (min-width: 768px) {
+header .intro-text {
+    padding-bottom: 207px;
+    padding-top: 207px;
+}
+header .intro-text .intro-lead-in {
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bolder;
+    line-height: 40px;
+    margin-bottom: 25px;
+}
+header .intro-text .intro-heading {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 75px;
+    font-weight: 700;
+    line-height: 75px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+}
+section {
+    padding: 100px 0;
+}
+section h2.section-heading {
+    font-size: 40px;
+    margin-bottom: 15px;
+    margin-top: 0;
+    padding-bottom: 24px;
+}
+section h3.section-subheading {
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 75px;
+    text-transform: none;
+}
+@media (min-width: 768px) {
+section {
+    padding: 150px 0;
+}
+}
+.service-heading {
+    margin: 15px 0;
+    text-transform: none;
+}
+#portfolio .portfolio-item {
+    margin: 0 0 15px;
+    right: 0;
+}
+#portfolio .portfolio-item .portfolio-link {
+    display: block;
+    margin: 0 auto;
+    max-width: 400px;
+    position: relative;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+    background: none repeat scroll 0 0 rgba(254, 209, 54, 0.9);
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
+    opacity: 1;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+    color: #fff;
+    font-size: 20px;
+    height: 20px;
+    margin-top: -12px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
+    margin-top: -12px;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3, #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
+    margin: 0;
+}
+#portfolio .portfolio-item .portfolio-caption {
+    background-color: #fff;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 25px;
+    text-align: center;
+}
+#portfolio .portfolio-item .portfolio-caption h4 {
+    margin: 0;
+    text-transform: none;
+}
+#portfolio .portfolio-item .portfolio-caption p {
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    margin: 0;
+}
+#portfolio * {
+    z-index: 2;
+}
+@media (min-width: 767px) {
+#portfolio .portfolio-item {
+    margin: 0 0 30px;
+}
+}
+.timeline {
+    list-style: none outside none;
+    padding: 0;
+    position: relative;
+}
+.timeline:before {
+    background-color: #f1f1f1;
+    bottom: 0;
+    content: "";
+    left: 40px;
+    margin-left: -1.5px;
+    position: absolute;
+    top: 0;
+    width: 2px;
+}
+.timeline > li {
+    margin-bottom: 50px;
+    min-height: 50px;
+    position: relative;
+}
+.timeline > li:before, .timeline > li:after {
+    content: " ";
+    display: table;
+}
+.timeline > li:after {
+    clear: both;
+}
+.timeline > li .timeline-panel {
+    float: right;
+    padding: 0 20px 0 100px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.timeline > li .timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+}
+.timeline > li .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+}
+.timeline > li .timeline-image {
+    background-color: #fed136;
+    border: 7px solid #f1f1f1;
+    border-radius: 100%;
+    color: #fff;
+    height: 80px;
+    left: 0;
+    margin-left: 0;
+    position: absolute;
+    text-align: center;
+    width: 80px;
+    z-index: 100;
+}
+.timeline > li .timeline-image h4 {
+    font-size: 10px;
+    line-height: 14px;
+    margin-top: 12px;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+    padding: 0 20px 0 100px;
+    text-align: left;
+}
+.timeline > li.timeline-inverted > .timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+}
+.timeline > li.timeline-inverted > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+}
+.timeline > li:last-child {
+    margin-bottom: 0;
+}
+.timeline .timeline-heading h4 {
+    color: inherit;
+    margin-top: 0;
+}
+.timeline .timeline-heading h4.subheading {
+    text-transform: none;
+}
+.timeline .timeline-body > p, .timeline .timeline-body > ul {
+    margin-bottom: 0;
+}
+@media (min-width: 768px) {
+.timeline:before {
+    left: 50%;
+}
+.timeline > li {
+    margin-bottom: 100px;
+    min-height: 100px;
+}
+.timeline > li .timeline-panel {
+    float: left;
+    padding: 0 20px 20px 30px;
+    text-align: right;
+    width: 41%;
+}
+.timeline > li .timeline-image {
+    height: 100px;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+}
+.timeline > li .timeline-image h4 {
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 16px;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+    padding: 0 30px 20px 20px;
+    text-align: left;
+}
+}
+@media (min-width: 992px) {
+.timeline > li {
+    min-height: 150px;
+}
+.timeline > li .timeline-panel {
+    padding: 0 20px 20px;
+}
+.timeline > li .timeline-image {
+    height: 150px;
+    margin-left: -75px;
+    width: 150px;
+}
+.timeline > li .timeline-image h4 {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 30px;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 20px 20px;
+}
+}
+@media (min-width: 1200px) {
+.timeline > li {
+    min-height: 170px;
+}
+.timeline > li .timeline-panel {
+    padding: 0 20px 20px 100px;
+}
+.timeline > li .timeline-image {
+    height: 170px;
+    margin-left: -85px;
+    width: 170px;
+}
+.timeline > li .timeline-image h4 {
+    margin-top: 40px;
+}
+.timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 100px 20px 20px;
+}
+}
+.team-member {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.team-member img {
+    border: 7px solid #fff;
+    margin: 0 auto;
+}
+.team-member h4 {
+    margin-bottom: 0;
+    margin-top: 25px;
+    text-transform: none;
+}
+.team-member p {
+    margin-top: 0;
+}
+aside.clients img {
+    margin: 50px auto;
+}
+section#contact {
+    background-color: skyblue;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+section#contact .section-heading {
+    color: #fff;
+}
+section#contact .form-group {
+    margin-bottom: 25px;
+}
+section#contact .form-group input, section#contact .form-group textarea {
+    padding: 8px;
+}
+input[type="file"] {
+    padding: 0 !important;
+}
+section#contact .form-group input.form-control {
+    height: auto;
+}
+section#contact .form-group textarea.form-control {
+    height: 136px;
+}
+section#contact .form-control:focus {
+    border-color: #fed136;
+    box-shadow: none;
+}
+section#contact:-moz-placeholder {
+    color: #bbb;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+section#contact::-moz-placeholder {
+    color: #bbb;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+section#contact .text-danger {
+    color: #e74c3c;
+}
+section#login .text-danger {
+    color: #e74c3c;
+}
+footer {
+    padding: 25px 0;
+    text-align: center;
+}
+footer span.copyright {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 40px;
+    text-transform: none;
+}
+footer ul.quicklinks {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 40px;
+    margin-bottom: 0;
+    text-transform: none;
+}
+ul.social-buttons {
+    margin-bottom: 0;
+}
+ul.social-buttons li a {
+    background-color: #222;
+    border-radius: 100%;
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    outline: 0 none;
+    transition: all 0.3s ease 0s;
+    width: 40px;
+}
+ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {
+    background-color: #fed136;
+}
+.btn:focus, .btn:active, .btn.active, .btn:active:focus {
+    outline: 0 none;
+}
+.portfolio-modal .modal-content {
+    background-clip: border-box;
+    border: 0 none;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100%;
+    padding: 100px 0;
+    text-align: center;
+}
+.portfolio-modal .modal-content h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+.portfolio-modal .modal-content p {
+    margin-bottom: 30px;
+}
+.portfolio-modal .modal-content p.item-intro {
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    margin: 20px 0 30px;
+}
+.portfolio-modal .modal-content ul.list-inline {
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+.portfolio-modal .modal-content img {
+    margin-bottom: 30px;
+}
+.portfolio-modal .close-modal {
+    background-color: transparent;
+    cursor: pointer;
+    height: 75px;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    width: 75px;
+}
+.portfolio-modal .close-modal:hover {
+    opacity: 0.3;
+}
+.portfolio-modal .close-modal .lr {
+    background-color: #222;
+    height: 75px;
+    margin-left: 35px;
+    transform: rotate(45deg);
+    width: 1px;
+    z-index: 1051;
+}
+.portfolio-modal .close-modal .lr .rl {
+    background-color: #222;
+    height: 75px;
+    transform: rotate(90deg);
+    width: 1px;
+    z-index: 1052;
+}
+*::-moz-selection {
+    background: none repeat scroll 0 0 #fed136;
+    text-shadow: none;
+}
+img::-moz-selection {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+body {
+}
+.imgs img {
+    margin-right: 7px;
+}
+#login {
+    background-color: rgb(247, 247, 222);
+}
+#uploadCv {
+    background-color: rgb(125, 189, 200);
+}

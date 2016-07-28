@@ -1,0 +1,55 @@
+<div id="login" class=" form">
+    <section class="login_content">
+    <span ng-show="user.badCrd" class="alert alert-warning col-md-12">{{'BAD_CREDENTIALS'|translate}}</span>
+    <div ng-show="user.badCrd === true || user.badCrd === 'true'" id="login-alert" class="alert alert-danger col-md-12">{{'BAD_CREDENTIALS'| translate}}</div>
+   
+   
+            <form id="loginform" name="login">
+                <h1>{{'Forgot Password'| translate}}</h1>        
+               <input autofocus required title="{{'TITLE_USER_NAME'|translate}}" type="email" id="j_username" name="username" ng-model="user.username" placeholder="{{'EMAIL_ADDR'| translate}}" class="form-control" />
+                    
+                    <div class="angError" ng-show="login.username.$dirty && login.username.$error.required">
+                        {{'UN_REQ'| translate}}</div>
+                    <div class="angError" ng-show="login.username.$dirty && login.username.$invalid">
+                        {{'UN_INV'| translate}}</div>          
+                   
+               <input required title="{{'TITLE_CONTACT_NO'|translate}}" type="number" id="j_usercontact" name="contact" ng-model="user.contact" ng-pattern="/^[789]\d{9}$/" placeholder="{{'CONTACT'| translate}}" class="form-control" />
+                    
+                    <div class="angError" ng-show="login.contact.$dirty && login.contact.$error.required">
+                        {{'UC_REQ'| translate}}</div>
+                    <div class="angError" ng-show="login.contact.$dirty && login.contact.$invalid">
+                        {{'UC_INV'| translate}}</div> 
+                    
+                    
+                    <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div style="margin-top: 15px"> 
+                                        <img alt="captcha" height="35" src="api/captcha">
+                                    </div>
+                                </div>
+                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div style="margin-top: 15px"> 
+                                        <input required type="text" placeholder="Captcha" ng-model="user.captcha" class="form-control" title="9 digits alpha numeric" id="captcha" name="captcha" ng-pattern="/^[a-zA-Z0-9\s]{9}$/" />
+                                        <div class="angError" ng-show="login.captcha.$dirty && login.captcha.$error.required">
+                                            {{'CAP_REQ'| translate}}</div>
+                                        <div class="angError" ng-show="login.captcha.$dirty && login.captcha.$invalid">
+                                            {{'CAP_INV'| translate}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                  <div>
+                      <input type="button" id="btn-login" class="btn btn-default submit" ng-disabled="login.$invalid || login.captcha.$error.required" value="Go get it..." ng-click="getCreds()">
+                    <a class="reset_pass" href="#/login">{{'Back to login'| translate}}</a>
+            </div>       
+                    
+              <div class="clearfix"></div>
+              <div class="separator"> </div>
+                <div class="clearfix"></div>  
+            </form>
+     <div class="imgs col-lg-12 col-sm-12 hidden-xs text-center">
+
+        </div>  
+        <p class="text-center">{{'COPY_RIGHT'|translate}}</p>
+    </section>
+</div>

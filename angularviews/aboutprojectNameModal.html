@@ -1,0 +1,24 @@
+<div class="model-popup">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'ABOUT_EMC_SIZER' | translate}}</h4>
+        <a title="Close" class="popup-close-icon close" ng-click="cancel()">
+            <span class="scenarios-close-icon">&nbsp;Close</span>
+        </a>
+    </div>
+
+    <div class="modal-body">
+        <div>
+            <div style="height: 94px;overflow: hidden">
+                <img src="img/projectLogo.png">
+            </div>
+            <span > Application Version : <span class="fontWeightBold">{{app_version}}</span></span>
+            <span ng-show="USER_ROLE == 'ROLE_ADMIN'" >DB Version : <span class="fontWeightBold">{{db_version}}</span></span>
+            <p >{{'CONTACT_INFO_HEAD' | translate}}</p>
+            <span >{{'SALES_INFO' | translate}} :</span>&nbsp;<span class="color-blue font12px displayNone"><a href="mailto:{{'SALES_INFO_ID' | translate}}">{{'SALES_INFO_ID' | translate}}</a> </span>
+            <span >{{'SUPPORT' | translate}} :</span>&nbsp;<span class="color-blue font12px displayNone"><a href="mailto:{{'SUPPORT_ID' | translate}}">{{'SUPPORT_ID' | translate}}</a></span>
+            <p> {{'DESC_HEAD' | translate}}</p>
+            <p>{{'MORE_DESC' | translate}}</p>
+            <span>{{'COPY_RIGHT' | translate}}</span><br>
+        </div>
+        </div>
+    </div>

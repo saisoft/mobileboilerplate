@@ -1,0 +1,50 @@
+<div id="login" class=" form">
+    <section class="login_content">
+        <span ng-show="user.badCrd" class="alert alert-warning col-md-12">{{'BAD_CREDENTIALS'|translate}}</span>
+        <div ng-show="user.badCrd === true || user.badCrd === 'true'" id="login-alert" class="alert alert-danger col-md-12">{{'BAD_CREDENTIALS'| translate}}</div>
+
+
+
+
+
+        <form id="loginform" name="login">
+            <h1>{{'LOGIN'| translate}}</h1>
+
+            <input autofocus required title="{{'TITLE_USER_NAME'|translate}}" type="email" ng-pattern='/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' id="j_username" name="username" ng-model="user.username" placeholder="{{'EMAIL_ADDR'| translate}}" class="form-control" />
+            <div class="angError" ng-show="login.username.$dirty && login.username.$error.required">
+                {{'UN_REQ'| translate}}</div>
+            <div class="angError" ng-show="login.username.$dirty && login.username.$invalid">
+                {{'UN_INV'| translate}}</div>
+
+
+            <input ng-enter="loginUser()" title="{{'TITLE_PASSWORD'|translate}}" ng-pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/" required type="password" id="j_password" name="password" ng-model="user.password" placeholder="{{'PASSWORD'| translate}}" class="form-control"/>
+            <div class="angError" ng-show="login.password.$dirty && login.password.$error.required">
+                {{'PS_REQ'| translate}}</div>
+            <div class="angError" ng-show="login.password.$dirty && login.password.$invalid">
+                {{'PS_INV'| translate}}</div>
+
+
+
+            <!-- Button -->
+            <div>
+                <a id="btn-login" class="btn btn-default submit" ng-disabled="login.$invalid" ng-click="loginUser()">{{'LOGIN'| translate}}  </a>
+                <a class="reset_pass" href="#/forgotcreds">Lost your password?</a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="separator"> </div>
+                <div class="clearfix"></div>
+                <p class="change_link">New to site?
+                    <a href="#/signup/0" class="to_register"> Create Account </a>
+                </p>
+                <div class="clearfix"></div> 
+        </form>
+
+        <p class="text-center">{{'COPY_RIGHT'|translate}}</p>
+
+        <div class="imgs col-lg-12 col-sm-12 hidden-xs text-center">
+
+        </div>  
+    </section>
+</div>
+<!-- /. PAGE INNER  -->
+

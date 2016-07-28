@@ -1,0 +1,79 @@
+<div id="page-wrapper" style="min-height: 536px;">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>{{'MY_DNYAN'| translate}} &gt; {{'EDIT_PROFILE'| translate}}</h4>
+            </div>
+        </div>              
+        <!-- /. ROW  -->
+        <hr>
+        <div class="row">
+            <div class="mainbox col-md-10 col-sm-12" id="loginbox">
+                <div class="container">
+                    <div class="row form-group">
+                        <form  name="updateForm"> 
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                                <div class="row">                                                                                               
+
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <label>{{'CONTACT_NO'|translate}}</label>
+                                        <div>
+                                            <input ng-model="user.contactno" name="contactno" type="text" required class="form-control" ng-pattern="/^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{11}$/" />
+                                        </div>
+                                        <div class="angError" ng-show="updateForm.contactno.$dirty && updateForm.contactno.$error.required">
+                                            {{'UC_REQ'| translate}}</div>
+                                        <div class="angError" ng-show="updateForm.contactno.$dirty && updateForm.contactno.$invalid">
+                                            {{'UC_INV'| translate}}</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <label style="margin-top: 15px">{{'ADDRESS'|translate}}</label>
+                                        <div>
+                                            <textarea ng-model="user.address" name="address" required class="form-control" ng-pattern="/^[a-zA-Z0-9\s]{10,50}$/"></textarea>
+                                        </div>
+                                        <div class="angError" ng-show="updateForm.address.$dirty && updateForm.address.$error.required">
+                                            {{'UA_REQ'| translate}}</div>
+                                        <div class="angError" ng-show="updateForm.address.$dirty && updateForm.address.$invalid">
+                                            {{'UA_INV'| translate}}</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <label style="margin-top: 15px">{{'CITY'|translate}}</label>
+                                        <div>
+                                            <input ng-model="user.city" name="city" type="text" required class="form-control" ng-pattern="/^[a-zA-Z\s]{4,20}$/" />
+                                        </div>
+                                        <div class="angError" ng-show="updateForm.city.$dirty && updateForm.city.$error.required">
+                                            {{'CY_REQ'| translate}}</div>
+                                        <div class="angError" ng-show="updateForm.city.$dirty && updateForm.city.$invalid">
+                                            {{'CY_INV'| translate}}</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <label style="margin-top: 15px">{{'PIN_CODE'|translate}}</label>
+                                        <div>
+                                            <input ng-model="user.pincode" name="pincode" type="text" required class="form-control" ng-pattern="/^[0-9]{6}$/" />
+                                        </div>
+                                        <div class="angError" ng-show="updateForm.pincode.$dirty && updateForm.pincode.$error.required">
+                                            {{'PIN_REQ'| translate}}</div>
+                                        <div class="angError" ng-show="updateForm.pincode.$dirty && updateForm.pincode.$invalid">
+                                            {{'PIN_INV'| translate}}</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="margin-top: 15px">
+                                        <div>
+                                            <a class="btn btn-primary" ng-disabled="updateForm.$invalid" ng-click="editUserDetails()"><i class="fa fa-save"></i> {{'SAVE' | translate}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

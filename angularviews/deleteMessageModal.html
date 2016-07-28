@@ -1,0 +1,17 @@
+<div class="model-popup">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'ALERT_DETAILS' | translate}}</h4>
+        <a title="Close" class="popup-close-icon close" ng-click="cancel()">
+            <span class="scenarios-close-icon">&nbsp;</span>
+        </a>
+    </div>
+
+    <div class="modal-body">
+        <span class="filed-icon"></span>&nbsp;&nbsp;<span>{{errorMessage}}</span>
+    </div>
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-danger"  ng-click="yes()">Yes</button>
+        <button type="button" class="btn btn-success"  ng-click="no()">No</button>
+    </div>
+</div>

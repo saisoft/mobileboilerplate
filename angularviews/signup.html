@@ -1,0 +1,1392 @@
+<style>
+    #wrapper{
+        max-width: 600px;
+    }
+</style>
+<div id="login" class=" form">
+    <section class="login_content">
+        <div ng-show="userType === '0'" class="mainbox col-md-12 col-sm-12" >                    
+
+            <h1>{{'Register'|translate}}</h1>
+
+            <form class="form-horizontal" id="registerProfile" name="emprForm">
+                <div class="row centered-form">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text"  ng-model="user.firstName" required placeholder="{{'FIRST_NAME'|translate}}" class="form-control" title="{{'TITLE_NAME'|translate}}" id="first_name" name="first_name" ng-pattern="/^[a-zA-Z]{1,20}$/" />
+                                    <div class="angError" ng-show="emprForm.first_name.$dirty && emprForm.first_name.$error.required">
+                                        {{'FN_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.first_name.$dirty && emprForm.first_name.$invalid">
+                                        {{'FN_INV'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text" required ng-model="user.lastName" placeholder="{{'LAST_NAME'|translate}}" class="form-control" title="{{'TITLE_NAME'|translate}}" id="last_name" name="last_name" ng-pattern="/^[a-zA-Z]{1,20}$/" />
+                                    <div class="angError" ng-show="emprForm.last_name.$dirty && emprForm.last_name.$error.required">
+                                        {{'LN_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.last_name.$dirty && emprForm.last_name.$invalid">
+                                        {{'LN_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12" style="margin-top: 22px">
+                                <input value="Male" type="radio" ng-model="user.gender" name="gender" id="maleradio" class="checkthis"/><label class="lbl padding-12 col-md-3" for="maleradio"> {{'MALE'|translate}} </label>
+                                <input value="Female" type="radio" ng-model="user.gender"  name="gender" id="femaleradio" class="checkthis"/><label class="lbl padding-12 col-md-3" for="femaleradio"> {{'FEMALE'|translate}} </label> 
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="password" required ng-model="user.password" placeholder="{{'PASSWORD'|translate}}" class="form-control" id="password" name="password" title="{{'TITLE_PASSWORD'|translate}}" ng-pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/" />
+                                    <div class="angError" ng-show="emprForm.password.$dirty && emprForm.password.$error.required">
+                                        {{'PS_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.password.$dirty && emprForm.password.$invalid">
+                                        {{'PS_INV'| translate}}</div>
+                                    <div class="angError" ng-show="user.confirmPassword !== user.password">
+                                        {{'PASSWORD_UNMATCH'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="password" required ng-model="user.confirmPassword" placeholder="{{'CONFIRM_PASSWORD'|translate}}" class="form-control" id="password_confirmation" name="password_confirmation" title="{{'TITLE_PASSWORD'|translate}}" ng-pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/" />
+                                    <div class="angError" ng-show="emprForm.password_confirmation.$dirty && emprForm.password_confirmation.$error.required">
+                                        {{'PS_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.password_confirmation.$dirty && emprForm.password_confirmation.$invalid">
+                                        {{'PS_INV'| translate}}</div>
+                                    <div class="angError" ng-show="user.confirmPassword !== user.password">
+                                        {{'PASSWORD_UNMATCH'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input required type="email" placeholder="{{'EMAIL_ADDR'|translate}}" ng-model="user.email" class="form-control" id="email" name="emailid" title="{{'TITLE_EMAIL'|translate}}" />
+                                    <div class="angError" ng-show="emprForm.emailid.$dirty && emprForm.emailid.$error.required">
+                                        {{'EL_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.emailid.$dirty && emprForm.emailid.$invalid">
+                                        {{'EL_INV'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text" required placeholder="{{'COMPANY_NAME'|translate}}" ng-model="user.mambo" class="form-control" title="{{'TITLE_NAME'|translate}}" id="comp_name" name="comp_name" ng-pattern="/^[a-zA-Z\s]{1,30}$/" />
+                                    <div class="angError" ng-show="emprForm.comp_name.$dirty && emprForm.comp_name.$error.required">
+                                        {{'CN_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.comp_name.$dirty && emprForm.comp_name.$invalid">
+                                        {{'CN_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>                                                                            
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <div style="margin-top: 15px">
+                                    <input title="{{'TITLE_CONTACT_NO'|translate}}" type="text" required placeholder="{{'CONTACT'|translate}}" ng-model="user.mobileNumber" class="form-control" id="mobile_no" name="mobile_no" ng-pattern="/^[789]\d{9}$/"/>
+                                    <div class="angError" ng-show="emprForm.mobile_no.$dirty && emprForm.mobile_no.$error.required">
+                                        {{'UC_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.mobile_no.$dirty && emprForm.mobile_no.$invalid">
+                                        {{'UC_INV'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                                <div style="margin-top: 15px">
+                                    <input type="text" required placeholder="{{'ADDR'|translate}}" title="{{'TITLE_ADDR'|translate}}" ng-model="user.address" class="form-control" id="address" name="address" ng-pattern="/^[a-zA-Z0-9\s]{10,50}$/" />
+                                    <div class="angError" ng-show="emprForm.address.$dirty && emprForm.address.$error.required">
+                                        {{'UA_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.address.$dirty && emprForm.address.$invalid">
+                                        {{'UA_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text" required placeholder="{{'CITY'|translate}}" title="{{'TITLE_CITY'|translate}}" ng-model="user.city" class="form-control" id="city" name="city" ng-pattern="/^[a-zA-Z\s]{4,20}$/" />
+                                    <div class="angError" ng-show="emprForm.city.$dirty && emprForm.city.$error.required">
+                                        {{'CY_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.city.$dirty && emprForm.city.$invalid">
+                                        {{'CY_INV'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text" required placeholder="{{'PIN_CODE'|translate}}" title="{{'TITLE_PINCODE'|translate}}" ng-model="user.pincode" class="form-control" id="pin" name="pin" ng-pattern="/^[0-9]{6}$/" />
+                                    <div class="angError" ng-show="emprForm.pin.$dirty && emprForm.pin.$error.required">
+                                        {{'PIN_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.pin.$dirty && emprForm.pin.$invalid">
+                                        {{'PIN_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div style="margin-top: 15px"> 
+                                    <img alt="captcha" src="api/captcha" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div style="margin-top: 15px"> 
+                                    <input type="text" required placeholder="Captcha" ng-model="user.captcha" class="form-control" title="9 digits alpha numeric" id="resume_headline" name="captcha" ng-pattern="/^[a-zA-Z0-9\s]{9}$/" />
+                                    <div class="angError" ng-show="emprForm.captcha.$dirty && emprForm.captcha.$error.required">
+                                        {{'CAP_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.captcha.$dirty && emprForm.captcha.$invalid">
+                                        {{'CAP_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        <input ng-disabled="emprForm.$invalid" style="margin-top: 15px" type="button" ng-click="signupUser()" class="btn btn-default" value="{{'REGISER_ME'|translate}}" name="saveProfile"/>
+                     <a class="reset_pass" href="#/login">{{'Back to login'| translate}}</a>
+                        </div>       
+
+                        <div class="clearfix"></div>
+                        <div class="separator"> </div>
+                        <div class="clearfix"></div>  
+                    </div>
+                </div>
+           
+            </form>     
+
+
+            <p> {{'COPY_RIGHT'|translate}}</p></div>
+        <div ng-show="userType === '1'" class="mainbox col-md-12 col-sm-12">                    
+            <h1>{{'Register'|translate}}</h1>
+
+            <form class="form-horizontal" id="registerProfile" name="empForm">
+                <div class="row centered-form">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="row">
+                            <h4>Personal Details</h4>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text" autofocus ng-model="user.firstName" required placeholder="{{'FIRST_NAME'|translate}}" class="form-control" title="{{'TITLE_NAME'|translate}}" id="first_name" name="first_name" ng-pattern="/^[a-zA-Z]{1,20}$/" />
+                                    <div class="angError" ng-show="empForm.first_name.$dirty && empForm.first_name.$error.required">
+                                        {{'FN_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.first_name.$dirty && empForm.first_name.$invalid">
+                                        {{'FN_INV'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text" ng-model="user.lastName" required placeholder="{{'LAST_NAME'|translate}}" class="form-control" title="{{'TITLE_NAME'|translate}}" id="last_name" name="last_name" ng-pattern="/^[a-zA-Z]{1,20}$/" />
+                                    <div class="angError" ng-show="empForm.last_name.$dirty && empForm.last_name.$error.required">
+                                        {{'LN_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.last_name.$dirty && empForm.last_name.$invalid">
+                                        {{'LN_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6" style="margin-top: 22px">
+                                <input value="Male" type="radio" ng-model="user.gender" name="gender" id="maleradio" class="checkthis"/><label class="lbl padding-12 col-md-3" for="maleradio"> {{'MALE'|translate}} </label>
+                                <input value="Female" type="radio" ng-model="user.gender"  name="gender" id="femaleradio" class="checkthis"/><label class="lbl padding-12 col-md-3" for="femaleradio"> {{'FEMALE'|translate}} </label> 
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <h4>Create your account</h4>
+                            <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12" style="margin-top: 15px">
+                                <input required name="emailid" type="email" ng-model="user.email" placeholder="{{'EMAIL_ADDR'|translate}}" title="{{'TITLE_EMAIL'|translate}}" class="form-control" id="email"   />
+                                <div class="angError" ng-show="empForm.emailid.$dirty && empForm.emailid.$error.required">
+                                    {{'EL_REQ'| translate}}</div>
+                                <div class="angError" ng-show="empForm.emailid.$dirty && empForm.emailid.$invalid">
+                                    {{'EL_INV'| translate}}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="password" required placeholder="{{'PASSWORD'|translate}}" ng-model="user.password" class="form-control" id="password" name="password" title="{{'TITLE_PASSWORD'|translate}}" ng-pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/" />
+                                    <div class="angError" ng-show="empForm.password.$dirty && empForm.password.$error.required">
+                                        {{'PS_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.password.$dirty && empForm.password.$invalid">
+                                        {{'PS_INV'| translate}}</div>
+                                    <div class="angError" ng-show="user.confirmPassword !== user.password">
+                                        {{'PASSWORD_UNMATCH'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="password" ng-model="user.confirmPassword" required placeholder="{{'CONFIRM_PASSWORD'|translate}}" class="form-control" id="password_confirmation" name="password_confirmation" title="{{'TITLE_PASSWORD'|translate}}" ng-pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/" />
+                                    <div class="angError" ng-show="empForm.password_confirmation.$dirty && empForm.password_confirmation.$error.required">
+                                        {{'PS_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.password_confirmation.$dirty && empForm.password_confirmation.$invalid">
+                                        {{'PS_INV'| translate}}</div>
+                                    <div class="angError" ng-show="user.confirmPassword !== user.password">
+                                        {{'PASSWORD_UNMATCH'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+
+                        <div class="row">
+                            <h4>Contact Details</h4>
+
+                            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                <div style="margin-top: 15px">
+                                    <input type="text" ng-model="user.mobileNumber" required placeholder="{{'CONTACT'|translate}}" title="{{'TITLE_CONTACT_NO'|translate}}" class="form-control" id="mobile_no" name="mobile_no" ng-pattern="/^[789]\d{9}$/" />
+                                    <div class="angError" ng-show="empForm.mobile_no.$dirty && empForm.mobile_no.$error.required">
+                                        {{'UC_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.mobile_no.$dirty && empForm.mobile_no.$invalid">
+                                        {{'UC_INV'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                <div style="margin-top: 15px">
+                                    <input type="text" ng-model="user.address" required placeholder="{{'ADDR'|translate}}" title="{{'TITLE_ADDR'|translate}}" class="form-control" id="address" name="address" ng-pattern="/^[a-zA-Z0-9\s]{10,50}$/" />
+                                    <div class="angError" ng-show="empForm.address.$dirty && empForm.address.$error.required">
+                                        {{'UA_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.address.$dirty && empForm.address.$invalid">
+                                        {{'UA_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                                                <div style="margin-top: 15px">
+                                                                    <input type="text" required placeholder="{{'CITY'|translate}}" title="{{'TITLE_CITY'|translate}}" ng-model="user.city" class="form-control" id="city" name="city" ng-pattern="/^[a-zA-Z\s]{4,20}$/" />
+                                                                    <div class="angError" ng-show="empForm.city.$dirty && empForm.city.$error.required">
+                                                                        {{'CY_REQ'| translate}}</div>
+                                                                    <div class="angError" ng-show="empForm.city.$dirty && empForm.city.$invalid">
+                                                                        {{'CY_INV'| translate}}</div>
+                                                                </div>
+                                                            </div>-->
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text" required placeholder="{{'CITY'|translate}}" title="{{'TITLE_CITY'|translate}}" ng-model="user.city" class="form-control" id="city" name="city" ng-pattern="/^[a-zA-Z\s]{4,20}$/" />
+                                    <div class="angError" ng-show="emprForm.city.$dirty && emprForm.city.$error.required">
+                                        {{'CY_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="emprForm.city.$dirty && emprForm.city.$invalid">
+                                        {{'CY_INV'| translate}}</div>
+                                    <!--
+                                    <select ng-model="user.city" name="city" id="city" class="form-control">
+                                        <option value="">Select City</option>
+                                        <option value="1">Port Blair</option>
+                                        <option value="2">Adilabad</option>
+                                        <option value="3">Adoni</option>
+                                        <option value="4">Alwal</option>
+                                        <option value="5">Anakapalle</option>
+                                        <option value="6">Anantapur</option>
+                                        <option value="7">Bapatla</option>
+                                        <option value="8">Bellampalli</option>
+                                        <option value="9">Bhimavaram</option>
+                                        <option value="10">Bhongir</option>
+                                        <option value="11">Bobbili</option>
+                                        <option value="12">Bodhan</option>
+                                        <option value="13">Chilakalurupet</option>
+                                        <option value="14">Chinnachawk</option>
+                                        <option value="15">Chirala</option>
+                                        <option value="16">Chittur</option>
+                                        <option value="17">Cuddapah</option>
+                                        <option value="18">Dharmavaram</option>
+                                        <option value="19">Dhone</option>
+                                        <option value="20">Eluru</option>
+                                        <option value="21">Gaddiannaram</option>
+                                        <option value="22">Gadwal</option>
+                                        <option value="23">Gajuwaka</option>
+                                        <option value="24">Gudivada</option>
+                                        <option value="25">Gudur</option>
+                                        <option value="26">Guntakal</option>
+                                        <option value="27">Guntur</option>
+                                        <option value="28">Hindupur</option>
+                                        <option value="29">Hyderabad / Secunderabad</option>
+                                        <option value="30">Jagtial</option>
+                                        <option value="31">Kadiri</option>
+                                        <option value="32">Kagaznagar</option>
+                                        <option value="33">Kakinada</option>
+                                        <option value="34">Kallur</option>
+                                        <option value="35">Kamareddy</option>
+                                        <option value="36">Kapra</option>
+                                        <option value="37">Karimnagar</option>
+                                        <option value="38">Kurnool</option>
+                                        <option value="39">Kavali</option>
+                                        <option value="40">Khammam</option>
+                                        <option value="41">Kodad</option>
+                                        <option value="42">Kandukur</option>
+                                        <option value="43">Koratla</option>
+                                        <option value="44">kothagudem</option>
+                                        <option value="45">kukatpally</option>
+                                        <option value="46">Lalbahadur Nagar</option>
+                                        <option value="47">Machilipatnam</option>
+                                        <option value="48">Mahbubnagar</option>
+                                        <option value="49">Malkajgiri</option>
+                                        <option value="50">Mancherial</option>
+                                        <option value="51">Mandamarri</option>
+                                        <option value="52">Mangalagiri</option>
+                                        <option value="53">Markapur</option>
+                                        <option value="54">Miryalaguda</option>
+                                        <option value="55">Nalgonda</option>
+                                        <option value="56">Nandyal</option>
+                                        <option value="57">Narasapur</option>
+                                        <option value="58">Narasaraopet</option>
+                                        <option value="59">Nellore</option>
+                                        <option value="60">Nirmal</option>
+                                        <option value="61">Nizamabad</option>
+                                        <option value="62">Nuzvid</option>
+                                        <option value="63">Ongole</option>
+                                        <option value="64">Palakollu</option>
+                                        <option value="65">Palasa</option>
+                                        <option value="66">Palwancha</option>
+                                        <option value="67">Patancheru</option>
+                                        <option value="68">Piduguralla</option>
+                                        <option value="69">Ponnur</option>
+                                        <option value="70">Proddatur</option>
+                                        <option value="71">Qutubullapur</option>
+                                        <option value="72">Rajahmundry</option>
+                                        <option value="73">Rajampet</option>
+                                        <option value="74">Rajendranagar</option>
+                                        <option value="75">Ramachandrapuram</option>
+                                        <option value="76">Ramagundam</option>
+                                        <option value="77">Rayachoti</option>
+                                        <option value="78">Rayadrug</option>
+                                        <option value="79">Samalkot</option>
+                                        <option value="80">Sangareddy</option>
+                                        <option value="81">Sattenapalle</option>
+                                        <option value="82">Serilingampally</option>
+                                        <option value="83">Siddipet</option>
+                                        <option value="85">Sirsilla</option>
+                                        <option value="86">Srikakulam</option>
+                                        <option value="87">Srikalahasti</option>
+                                        <option value="88">suryapet</option>
+                                        <option value="89">Tadepalle</option>
+                                        <option value="90">Tadepalligudem</option>
+                                        <option value="91">Tadipatri</option>
+                                        <option value="92">Tandur</option>
+                                        <option value="93">Tanuku</option>
+                                        <option value="94">Tenali</option>
+                                        <option value="95">Tirupati</option>
+                                        <option value="96">Tuni</option>
+                                        <option value="97">Uppal Kalan</option>
+                                        <option value="98">Vijayawada</option>
+                                        <option value="99">Vinukonda</option>
+                                        <option value="100">Visakhapatnam</option>
+                                        <option value="101">Vizianagaram</option>
+                                        <option value="102">Vuyyuru</option>
+                                        <option value="103">Wanparti</option>
+                                        <option value="104">Warangal</option>
+                                        <option value="105">Yemmiganur</option>
+                                        <option value="106">Itanagar</option>
+                                        <option value="107">Barpeta</option>
+                                        <option value="108">Bongaigaon</option>
+                                        <option value="109">Dhuburi</option>
+                                        <option value="110">Dibrugarh</option>
+                                        <option value="111">Diphu</option>
+                                        <option value="112">Guwahati</option>
+                                        <option value="113">Jorhat</option>
+                                        <option value="114">Karimganj</option>
+                                        <option value="115">Lakhimpur</option>
+                                        <option value="116">Lanka</option>
+                                        <option value="117">Nagaon</option>
+                                        <option value="118">Sibsagar</option>
+                                        <option value="119">Silchar</option>
+                                        <option value="120">Tezpur</option>
+                                        <option value="121">Tinsukia</option>
+                                        <option value="122">Alipur Duar</option>
+                                        <option value="123">Arambagh</option>
+                                        <option value="124">Asansol</option>
+                                        <option value="125">Ashoknagar Kalyangarh</option>
+                                        <option value="126">Baharampur</option>
+                                        <option value="127">Baidyabati</option>
+                                        <option value="128">Baj Baj</option>
+                                        <option value="129">Bally</option>
+                                        <option value="130">Bally Cantonment</option>
+                                        <option value="131">Balurghat</option>
+                                        <option value="132">Bangaon</option>
+                                        <option value="133">Bankra</option>
+                                        <option value="134">Bankura</option>
+                                        <option value="135">Bansbaria</option>
+                                        <option value="136">Baranagar</option>
+                                        <option value="137">Barddhaman</option>
+                                        <option value="138">Basirhat</option>
+                                        <option value="139">Bhadreswar</option>
+                                        <option value="140">Bhatpara</option>
+                                        <option value="141">Bidhannagar</option>
+                                        <option value="142">Binnaguri</option>
+                                        <option value="143">Bishnupur</option>
+                                        <option value="144">Bolpur</option>
+                                        <option value="145">Kolkata</option>
+                                        <option value="146">Chakdaha</option>
+                                        <option value="147">Champdani</option>
+                                        <option value="148">Chandannagar</option>
+                                        <option value="149">Contai</option>
+                                        <option value="150">Dabgram</option>
+                                        <option value="151">Darjiling</option>
+                                        <option value="152">Dhulian</option>
+                                        <option value="153">Dinhata</option>
+                                        <option value="154">Dum Dum</option>
+                                        <option value="155">Durgapur</option>
+                                        <option value="156">Gangarampur</option>
+                                        <option value="157">Garulia</option>
+                                        <option value="158">Gayespur</option>
+                                        <option value="159">Ghatal</option>
+                                        <option value="160">Gopalpur</option>
+                                        <option value="161">Habra</option>
+                                        <option value="162">Halisahar</option>
+                                        <option value="163">Haora</option>
+                                        <option value="164">HugliChunchura</option>
+                                        <option value="165">Ingraj Bazar</option>
+                                        <option value="166">Islampur</option>
+                                        <option value="167">Jalpaiguri</option>
+                                        <option value="168">Jamuria</option>
+                                        <option value="169">Jangipur</option>
+                                        <option value="170">Jhargram</option>
+                                        <option value="171">Kaliyaganj</option>
+                                        <option value="172">Kalna</option>
+                                        <option value="173">Kalyani</option>
+                                        <option value="174">Kamarhati</option>
+                                        <option value="175">Kanchrapara</option>
+                                        <option value="176">Kandi</option>
+                                        <option value="177">Karsiyang</option>
+                                        <option value="178">Katwa</option>
+                                        <option value="179">Kharagpur</option>
+                                        <option value="180">Kharagpur Railway Settlement</option>
+                                        <option value="181">Khardaha</option>
+                                        <option value="182">Kharia</option>
+                                        <option value="183">Koch Bihar</option>
+                                        <option value="184">Konnagar</option>
+                                        <option value="185">Krishnanagar</option>
+                                        <option value="186">Kulti</option>
+                                        <option value="187">Madhyamgram</option>
+                                        <option value="188">Maheshtala</option>
+                                        <option value="189">Memari</option>
+                                        <option value="190">Midnapur</option>
+                                        <option value="191">Naihati</option>
+                                        <option value="192">Navadwip</option>
+                                        <option value="193">Ni Barakpur</option>
+                                        <option value="194">North Barakpur</option>
+                                        <option value="195">North Dum Dum</option>
+                                        <option value="196">Old Maldah</option>
+                                        <option value="197">Panihati</option>
+                                        <option value="198">Phulia</option>
+                                        <option value="199">Pujali</option>
+                                        <option value="200">Puruliya</option>
+                                        <option value="201">Raiganj</option>
+                                        <option value="202">Rajpur</option>
+                                        <option value="203">Rampur Hat</option>
+                                        <option value="204">Ranaghat</option>
+                                        <option value="205">Raniganj</option>
+                                        <option value="206">Rishra</option>
+                                        <option value="207">Shantipur</option>
+                                        <option value="208">Shiliguri</option>
+                                        <option value="209">Shrirampur</option>
+                                        <option value="210">Siuri</option>
+                                        <option value="211">South Dum Dum</option>
+                                        <option value="212">Titagarh</option>
+                                        <option value="213">Ulubaria</option>
+                                        <option value="214">UttarparaKotrung</option>
+                                        <option value="215">Araria</option>
+                                        <option value="216">Arrah</option>
+                                        <option value="217">Aurangabad</option>
+                                        <option value="218">Bagaha</option>
+                                        <option value="219">Begusarai</option>
+                                        <option value="220">Bettiah</option>
+                                        <option value="221">Bhabua</option>
+                                        <option value="222">Bhagalpur</option>
+                                        <option value="223">Bihar</option>
+                                        <option value="224">Buxar</option>
+                                        <option value="225">Chhapra</option>
+                                        <option value="226">Darbhanga</option>
+                                        <option value="227">Dehri</option>
+                                        <option value="228">DighaMainpura</option>
+                                        <option value="229">Dinapur</option>
+                                        <option value="230">Dumraon</option>
+                                        <option value="231">Gaya</option>
+                                        <option value="232">Gopalganj</option>
+                                        <option value="233">Goura</option>
+                                        <option value="234">Hajipur</option>
+                                        <option value="235">Jahanabad</option>
+                                        <option value="236">Jamalpur</option>
+                                        <option value="237">Jamui</option>
+                                        <option value="238">Katihar</option>
+                                        <option value="239">Khagaria</option>
+                                        <option value="240">Khagaul</option>
+                                        <option value="241">Kishanganj</option>
+                                        <option value="242">Lakhisarai</option>
+                                        <option value="243">Madhipura</option>
+                                        <option value="244">Madhubani</option>
+                                        <option value="245">Masaurhi</option>
+                                        <option value="246">Mokama</option>
+                                        <option value="247">Motihari</option>
+                                        <option value="248">Munger</option>
+                                        <option value="249">Muzaffarpur</option>
+                                        <option value="250">Nawada</option>
+                                        <option value="251">Patna</option>
+                                        <option value="252">Phulwari</option>
+                                        <option value="253">Purnia</option>
+                                        <option value="254">Raxaul</option>
+                                        <option value="255">Saharsa</option>
+                                        <option value="256">Samastipur</option>
+                                        <option value="257">Sasaram</option>
+                                        <option value="258">Sitamarhi</option>
+                                        <option value="259">Siwan</option>
+                                        <option value="260">Supaul</option>
+                                        <option value="261">Chandigarh</option>
+                                        <option value="262">Ambikapur</option>
+                                        <option value="263">Bhilai</option>
+                                        <option value="264">Bilaspur</option>
+                                        <option value="265">Charoda</option>
+                                        <option value="266">Chirmiri</option>
+                                        <option value="267">Dhamtari</option>
+                                        <option value="268">Durg</option>
+                                        <option value="269">Jagdalpur</option>
+                                        <option value="270">Korba</option>
+                                        <option value="271">Raigarh</option>
+                                        <option value="272">Raipur</option>
+                                        <option value="273">Rajnandgaon</option>
+                                        <option value="274">Bhalswa Jahangirpur</option>
+                                        <option value="275">Burari</option>
+                                        <option value="276">Chilla Saroda Bangar</option>
+                                        <option value="277">Dallo Pura</option>
+                                        <option value="278">Delhi/NCR</option>
+                                        <option value="279">Deoli</option>
+                                        <option value="280">Dilli Cantonment</option>
+                                        <option value="281">Gharoli</option>
+                                        <option value="282">Gokalpur</option>
+                                        <option value="283">Hastsal</option>
+                                        <option value="284">Jaffrabad</option>
+                                        <option value="285">Karawal Nagar</option>
+                                        <option value="286">Khajuri Khas</option>
+                                        <option value="287">Kirari Suleman Nagar</option>
+                                        <option value="288">Mandoli</option>
+                                        <option value="289">Mithe Pur</option>
+                                        <option value="290">Molarband</option>
+                                        <option value="291">Mundka</option>
+                                        <option value="292">Mustafabad</option>
+                                        <option value="293">Nangloi Jat</option>
+                                        <option value="294">Ni Dilli</option>
+                                        <option value="295">Pul Pehlad</option>
+                                        <option value="296">Puth Kalan</option>
+                                        <option value="297">Roshan Pura</option>
+                                        <option value="298">Sadat Pur Gujran</option>
+                                        <option value="299">Sultanpur Majra</option>
+                                        <option value="300">Tajpul</option>
+                                        <option value="301">Tigri</option>
+                                        <option value="302">Ziauddin Pur</option>
+                                        <option value="303">Madgaon</option>
+                                        <option value="304">Mormugao</option>
+                                        <option value="305">Panaji</option>
+                                        <option value="306">Ahmedabad</option>
+                                        <option value="307">Amreli</option>
+                                        <option value="308">Anand</option>
+                                        <option value="309">Anjar</option>
+                                        <option value="310">Bardoli</option>
+                                        <option value="311">Bharuch</option>
+                                        <option value="312">Bhavnagar</option>
+                                        <option value="313">Bhuj</option>
+                                        <option value="314">Borsad</option>
+                                        <option value="315">Botad</option>
+                                        <option value="316">Chandkheda</option>
+                                        <option value="317">Chandlodiya</option>
+                                        <option value="318">Dabhoi</option>
+                                        <option value="319">Dahod</option>
+                                        <option value="320">Dholka</option>
+                                        <option value="321">Dhoraji</option>
+                                        <option value="322">Dhrangadhra</option>
+                                        <option value="323">Disa</option>
+                                        <option value="324">Gandhidham</option>
+                                        <option value="325">Gandhinagar</option>
+                                        <option value="326">Ghatlodiya</option>
+                                        <option value="327">Godhra</option>
+                                        <option value="328">Gondal</option>
+                                        <option value="329">Himatnagar</option>
+                                        <option value="330">Jamnagar</option>
+                                        <option value="331">Jamnagar</option>
+                                        <option value="332">Jetpur</option>
+                                        <option value="333">Junagadh</option>
+                                        <option value="334">Kalol</option>
+                                        <option value="335">Keshod</option>
+                                        <option value="336">Khambhat</option>
+                                        <option value="337">Kundla</option>
+                                        <option value="338">Mahuva</option>
+                                        <option value="339">Mangrol</option>
+                                        <option value="340">Modasa</option>
+                                        <option value="341">Morvi</option>
+                                        <option value="342">Nadiad</option>
+                                        <option value="343">Navagam Ghed</option>
+                                        <option value="344">Navsari</option>
+                                        <option value="345">Palitana</option>
+                                        <option value="346">Patan</option>
+                                        <option value="347">Porbandar</option>
+                                        <option value="348">Puna</option>
+                                        <option value="349">Rajkot</option>
+                                        <option value="350">Ramod</option>
+                                        <option value="351">Ranip</option>
+                                        <option value="352">Siddhapur</option>
+                                        <option value="353">Sihor</option>
+                                        <option value="354">Surat</option>
+                                        <option value="355">Surendranagar</option>
+                                        <option value="356">Thaltej</option>
+                                        <option value="357">Una</option>
+                                        <option value="358">Unjha</option>
+                                        <option value="359">Upleta</option>
+                                        <option value="360">Vadodara/Baroda</option>
+                                        <option value="361">Valsad</option>
+                                        <option value="362">Vapi</option>
+                                        <option value="363">Vastral</option>
+                                        <option value="364">Vejalpur</option>
+                                        <option value="365">Veraval</option>
+                                        <option value="366">Vijalpor</option>
+                                        <option value="367">Visnagar</option>
+                                        <option value="368">Wadhwan</option>
+                                        <option value="369">Ambala</option>
+                                        <option value="370">Ambala Cantonment</option>
+                                        <option value="371">Ambala Sadar</option>
+                                        <option value="372">Bahadurgarh</option>
+                                        <option value="373">Bhiwani</option>
+                                        <option value="374">Charkhi Dadri</option>
+                                        <option value="375">Dabwali</option>
+                                        <option value="376">Faridabad</option>
+                                        <option value="377">Gohana</option>
+                                        <option value="378">Hisar</option>
+                                        <option value="379">Jagadhri</option>
+                                        <option value="380">Jind</option>
+                                        <option value="381">Kaithal</option>
+                                        <option value="382">Karnal</option>
+                                        <option value="383">Narnaul</option>
+                                        <option value="384">Narwana</option>
+                                        <option value="385">Palwal</option>
+                                        <option value="386">Panchkula</option>
+                                        <option value="387">Panipat</option>
+                                        <option value="388">Rewari</option>
+                                        <option value="389">Rohtak</option>
+                                        <option value="390">Sirsa</option>
+                                        <option value="391">Sonipat</option>
+                                        <option value="392">Thanesar</option>
+                                        <option value="393">Tohana</option>
+                                        <option value="394">Yamunanagar</option>
+                                        <option value="395">Shimla</option>
+                                        <option value="396">Anantnag</option>
+                                        <option value="397">Baramula</option>
+                                        <option value="398">Bari Brahmana</option>
+                                        <option value="399">Jammu</option>
+                                        <option value="400">Kathua</option>
+                                        <option value="401">Sopur</option>
+                                        <option value="402">Srinagar</option>
+                                        <option value="403">Udhampur</option>
+                                        <option value="404">Adityapur</option>
+                                        <option value="405">Bagbahra</option>
+                                        <option value="406">Bhuli</option>
+                                        <option value="407">Bokaro</option>
+                                        <option value="408">Chaibasa</option>
+                                        <option value="409">Chas</option>
+                                        <option value="410">Daltenganj</option>
+                                        <option value="411">Devghar</option>
+                                        <option value="412">Dhanbad</option>
+                                        <option value="413">Hazaribag</option>
+                                        <option value="414">Jamshedpur</option>
+                                        <option value="415">Jharia</option>
+                                        <option value="416">Jhumri Tilaiya</option>
+                                        <option value="417">Jorapokhar</option>
+                                        <option value="418">Katras</option>
+                                        <option value="419">Lohardaga</option>
+                                        <option value="420">Mango</option>
+                                        <option value="421">Phusro</option>
+                                        <option value="422">Ramgarh</option>
+                                        <option value="423">Ranchi</option>
+                                        <option value="424">Sahibganj</option>
+                                        <option value="425">Saunda</option>
+                                        <option value="426">Sindari</option>
+                                        <option value="427">Bagalkot</option>
+                                        <option value="428">Bangalore/Bengaluru</option>
+                                        <option value="429">Basavakalyan</option>
+                                        <option value="430">Belgaum</option>
+                                        <option value="431">Bellary</option>
+                                        <option value="432">Bhadravati</option>
+                                        <option value="433">Bidar</option>
+                                        <option value="434">Bijapur</option>
+                                        <option value="435">Bommanahalli</option>
+                                        <option value="436">Byatarayanapura</option>
+                                        <option value="437">Challakere</option>
+                                        <option value="438">Chamrajnagar</option>
+                                        <option value="439">Channapatna</option>
+                                        <option value="440">Chik Ballapur</option>
+                                        <option value="441">Chikmagalur</option>
+                                        <option value="442">Chintamani</option>
+                                        <option value="443">Chitradurga</option>
+                                        <option value="444">Dasarahalli</option>
+                                        <option value="445">Davanagere</option>
+                                        <option value="446">Dod Ballapur</option>
+                                        <option value="447">Gadag</option>
+                                        <option value="448">Gangawati</option>
+                                        <option value="449">Gokak</option>
+                                        <option value="450">Gulbarga</option>
+                                        <option value="451">Harihar</option>
+                                        <option value="452">Hassan</option>
+                                        <option value="453">Haveri</option>
+                                        <option value="454">Hiriyur</option>
+                                        <option value="455">Hosakote</option>
+                                        <option value="456">Hospet</option>
+                                        <option value="457">Hubli</option>
+                                        <option value="458">Ilkal</option>
+                                        <option value="459">Jamkhandi</option>
+                                        <option value="460">Kanakapura</option>
+                                        <option value="461">Karwar</option>
+                                        <option value="462">Kolar</option>
+                                        <option value="463">Kollegal</option>
+                                        <option value="464">Koppal</option>
+                                        <option value="465">Krishnarajapura</option>
+                                        <option value="466">Mahadevapura</option>
+                                        <option value="467">Mysore</option>
+                                        <option value="468">Mandya</option>
+                                        <option value="469">Mangalore</option>
+                                        <option value="470">Nipani</option>
+                                        <option value="471">Pattanagere</option>
+                                        <option value="472">Puttur</option>
+                                        <option value="473">Rabkavi</option>
+                                        <option value="474">Raichur</option>
+                                        <option value="475">Ramanagaram</option>
+                                        <option value="476">Ranibennur</option>
+                                        <option value="477">Robertsonpet</option>
+                                        <option value="478">Sagar</option>
+                                        <option value="479">Shahabad</option>
+                                        <option value="480">Shahpur</option>
+                                        <option value="481">Shimoga</option>
+                                        <option value="482">Shorapur</option>
+                                        <option value="483">Sidlaghatta</option>
+                                        <option value="484">Sira</option>
+                                        <option value="485">Sirsi</option>
+                                        <option value="486">Tiptur</option>
+                                        <option value="487">Tumkur</option>
+                                        <option value="488">Udupi</option>
+                                        <option value="489">Ullal</option>
+                                        <option value="490">Yadgir</option>
+                                        <option value="491">Yelahanka</option>
+                                        <option value="492">Alappuzha</option>
+                                        <option value="493">Beypur</option>
+                                        <option value="494">Cheruvannur</option>
+                                        <option value="495">Edakkara</option>
+                                        <option value="496">Edathala</option>
+                                        <option value="497">Kalamassery</option>
+                                        <option value="498">Kannan Devan Hills</option>
+                                        <option value="499">Kannangad</option>
+                                        <option value="500">Kannur</option>
+                                        <option value="501">Kayankulam</option>
+                                        <option value="502">Ernakulam / Kochi/ Cochin</option>
+                                        <option value="503">Kollam</option>
+                                        <option value="504">Kottayam</option>
+                                        <option value="505">Koyilandi</option>
+                                        <option value="506">Kozhikode / Calicut</option>
+                                        <option value="507">Kunnamkulam</option>
+                                        <option value="508">Malappuram</option>
+                                        <option value="509">Manjeri</option>
+                                        <option value="510">Nedumangad</option>
+                                        <option value="511">Neyyattinkara</option>
+                                        <option value="512">Palakkad</option>
+                                        <option value="513">Pallichal</option>
+                                        <option value="514">Payyannur</option>
+                                        <option value="515">Ponnani</option>
+                                        <option value="516">Talipparamba</option>
+                                        <option value="517">Thalassery</option>
+                                        <option value="518">Thiruvananthapuram</option>
+                                        <option value="519">Thrippunithura</option>
+                                        <option value="520">Thrissur</option>
+                                        <option value="521">Tirur</option>
+                                        <option value="522">Tiruvalla</option>
+                                        <option value="523">Vadakara</option>
+                                        <option value="524">Ashoknagar</option>
+                                        <option value="525">Balaghat</option>
+                                        <option value="526">Basoda</option>
+                                        <option value="527">Betul</option>
+                                        <option value="528">Bhind</option>
+                                        <option value="529">Bhopal</option>
+                                        <option value="530">BinaEtawa</option>
+                                        <option value="531">Burhanpur</option>
+                                        <option value="532">Chhatarpur</option>
+                                        <option value="533">Chhindwara</option>
+                                        <option value="534">Dabra</option>
+                                        <option value="535">Damoh</option>
+                                        <option value="536">Datia</option>
+                                        <option value="537">Dewas</option>
+                                        <option value="538">Dhar</option>
+                                        <option value="539">Gohad</option>
+                                        <option value="540">Guna</option>
+                                        <option value="541">Gwalior</option>
+                                        <option value="542">Harda</option>
+                                        <option value="543">Hoshangabad</option>
+                                        <option value="544">Indore</option>
+                                        <option value="545">Itarsi</option>
+                                        <option value="546">Jabalpur</option>
+                                        <option value="547">Jabalpur Cantonment</option>
+                                        <option value="548">Jaora</option>
+                                        <option value="549">Khandwa</option>
+                                        <option value="550">Khargone</option>
+                                        <option value="551">Mandidip</option>
+                                        <option value="552">Mandsaur</option>
+                                        <option value="553">Mau</option>
+                                        <option value="554">Morena</option>
+                                        <option value="555">Murwara</option>
+                                        <option value="556">Nagda</option>
+                                        <option value="557">Nimach</option>
+                                        <option value="558">Pithampur</option>
+                                        <option value="559">Raghogarh</option>
+                                        <option value="560">Ratlam</option>
+                                        <option value="561">Rewa</option>
+                                        <option value="562">Sagar</option>
+                                        <option value="563">Sarni</option>
+                                        <option value="564">Satna</option>
+                                        <option value="565">Sehore</option>
+                                        <option value="566">Sendhwa</option>
+                                        <option value="567">Seoni</option>
+                                        <option value="568">Shahdol</option>
+                                        <option value="569">Shajapur</option>
+                                        <option value="570">Sheopur</option>
+                                        <option value="571">Shivapuri</option>
+                                        <option value="572">Sidhi</option>
+                                        <option value="573">Singrauli</option>
+                                        <option value="574">Tikamgarh</option>
+                                        <option value="575">Ujjain</option>
+                                        <option value="576">Vidisha</option>
+                                        <option value="577">Achalpur</option>
+                                        <option value="578">Ahmadnagar</option>
+                                        <option value="579">Akola</option>
+                                        <option value="580">Akot</option>
+                                        <option value="581">Amalner</option>
+                                        <option value="582">Ambajogai</option>
+                                        <option value="583">Amravati</option>
+                                        <option value="584">Anjangaon</option>
+                                        <option value="585">Aurangabad</option>
+                                        <option value="586">Badlapur</option>
+                                        <option value="587">Ballarpur</option>
+                                        <option value="588">Baramati</option>
+                                        <option value="589">Barsi</option>
+                                        <option value="590">Basmat</option>
+                                        <option value="591">Bhadravati</option>
+                                        <option value="592">Bhandara</option>
+                                        <option value="593">Bhiwandi</option>
+                                        <option value="594">Bhusawal</option>
+                                        <option value="595">Bid</option>
+                                        <option value="596">Mumbai</option>
+                                        <option value="597">Buldana</option>
+                                        <option value="598">Chalisgaon</option>
+                                        <option value="599">Chandrapur</option>
+                                        <option value="600">Chikhli</option>
+                                        <option value="601">Chiplun</option>
+                                        <option value="602">Chopda</option>
+                                        <option value="603">Dahanu</option>
+                                        <option value="604">Deolali</option>
+                                        <option value="605">Dhule</option>
+                                        <option value="606">Digdoh</option>
+                                        <option value="607">Diglur</option>
+                                        <option value="608">Gadchiroli</option>
+                                        <option value="609">Gondiya</option>
+                                        <option value="610">Hinganghat</option>
+                                        <option value="611">Hingoli</option>
+                                        <option value="612">Ichalkaranji</option>
+                                        <option value="613">Jalgaon</option>
+                                        <option value="614">Jalna</option>
+                                        <option value="615">Kalyan</option>
+                                        <option value="616">Kamthi</option>
+                                        <option value="617">Karanja</option>
+                                        <option value="618">Khadki</option>
+                                        <option value="619">Khamgaon</option>
+                                        <option value="620">Khopoli</option>
+                                        <option value="621">Kolhapur</option>
+                                        <option value="622">Kopargaon</option>
+                                        <option value="623">Latur</option>
+                                        <option value="624">Lonavale</option>
+                                        <option value="625">Malegaon</option>
+                                        <option value="626">Malkapur</option>
+                                        <option value="627">Manmad</option>
+                                        <option value="628">Mira Bhayandar</option>
+                                        <option value="629">Nagpur</option>
+                                        <option value="630">Nalasopara</option>
+                                        <option value="631">Nanded</option>
+                                        <option value="632">Nandurbar</option>
+                                        <option value="633">Nashik</option>
+                                        <option value="634">Navghar</option>
+                                        <option value="635">Navi Mumbai</option>
+                                        <option value="637">Osmanabad</option>
+                                        <option value="638">Palghar</option>
+                                        <option value="639">Pandharpur</option>
+                                        <option value="640">Parbhani</option>
+                                        <option value="641">Phaltan</option>
+                                        <option value="642">Pimpri</option>
+                                        <option value="643">Pune</option>
+                                        <option value="644">Pune Cantonment</option>
+                                        <option value="645">Pusad</option>
+                                        <option value="646">Ratnagiri</option>
+                                        <option value="647">SangliMiraj</option>
+                                        <option value="648">Satara</option>
+                                        <option value="649">Shahada</option>
+                                        <option value="650">Shegaon</option>
+                                        <option value="651">Shirpur</option>
+                                        <option value="652">Sholapur</option>
+                                        <option value="653">Shrirampur</option>
+                                        <option value="654">Sillod</option>
+                                        <option value="655">Thana</option>
+                                        <option value="656">Udgir</option>
+                                        <option value="657">Ulhasnagar</option>
+                                        <option value="658">Uran Islampur</option>
+                                        <option value="659">Vasai</option>
+                                        <option value="660">Virar</option>
+                                        <option value="661">Wadi</option>
+                                        <option value="662">Wani</option>
+                                        <option value="663">Wardha</option>
+                                        <option value="664">Warud</option>
+                                        <option value="665">Washim</option>
+                                        <option value="666">Yavatmal</option>
+                                        <option value="667">Imphal</option>
+                                        <option value="668">Shillong</option>
+                                        <option value="669">Tura</option>
+                                        <option value="670">Aizawl</option>
+                                        <option value="671">Lunglei</option>
+                                        <option value="672">Dimapur</option>
+                                        <option value="673">Kohima</option>
+                                        <option value="674">Wokha</option>
+                                        <option value="675">Balangir</option>
+                                        <option value="676">Baleshwar</option>
+                                        <option value="677">Barbil</option>
+                                        <option value="678">Bargarh</option>
+                                        <option value="679">Baripada</option>
+                                        <option value="680">Bhadrak</option>
+                                        <option value="681">Bhawanipatna</option>
+                                        <option value="682">Bhubaneshwar</option>
+                                        <option value="683">Brahmapur</option>
+                                        <option value="684">Brajrajnagar</option>
+                                        <option value="685">Dhenkanal</option>
+                                        <option value="686">Jaypur</option>
+                                        <option value="687">Jharsuguda</option>
+                                        <option value="688">Kataka</option>
+                                        <option value="689">Kendujhar</option>
+                                        <option value="690">Paradwip</option>
+                                        <option value="691">Puri</option>
+                                        <option value="692">Raurkela</option>
+                                        <option value="693">Raurkela Industrial Township</option>
+                                        <option value="694">Rayagada</option>
+                                        <option value="695">Sambalpur</option>
+                                        <option value="696">Sunabeda</option>
+                                        <option value="697">Karaikal</option>
+                                        <option value="698">Ozhukarai</option>
+                                        <option value="699">Pondicherry</option>
+                                        <option value="700">Abohar</option>
+                                        <option value="701">Amritsar</option>
+                                        <option value="702">Barnala</option>
+                                        <option value="703">Batala</option>
+                                        <option value="704">Bathinda</option>
+                                        <option value="705">Dhuri</option>
+                                        <option value="706">Faridkot</option>
+                                        <option value="707">Fazilka</option>
+                                        <option value="708">Firozpur</option>
+                                        <option value="709">Firozpur Cantonment</option>
+                                        <option value="710">Gobindgarh</option>
+                                        <option value="711">Gurdaspur</option>
+                                        <option value="712">Hoshiarpur</option>
+                                        <option value="713">Jagraon</option>
+                                        <option value="714">Jalandhar</option>
+                                        <option value="715">Kapurthala</option>
+                                        <option value="716">Khanna</option>
+                                        <option value="717">Kot Kapura</option>
+                                        <option value="718">Ludhiana</option>
+                                        <option value="719">Malaut</option>
+                                        <option value="720">Maler Kotla</option>
+                                        <option value="721">Mansa</option>
+                                        <option value="722">Moga</option>
+                                        <option value="723">Mohali</option>
+                                        <option value="724">Pathankot</option>
+                                        <option value="725">Patiala</option>
+                                        <option value="726">Phagwara</option>
+                                        <option value="727">Rajpura</option>
+                                        <option value="728">Rupnagar</option>
+                                        <option value="729">Samana</option>
+                                        <option value="730">Sangrur</option>
+                                        <option value="731">Sirhind</option>
+                                        <option value="732">Sunam</option>
+                                        <option value="733">Tarn Taran</option>
+                                        <option value="734">Ajmer</option>
+                                        <option value="735">Alwar</option>
+                                        <option value="736">Balotra</option>
+                                        <option value="737">Banswara</option>
+                                        <option value="738">Baran</option>
+                                        <option value="739">Bari</option>
+                                        <option value="740">Barmer</option>
+                                        <option value="741">Beawar</option>
+                                        <option value="742">Bharatpur</option>
+                                        <option value="743">Bhilwara</option>
+                                        <option value="744">Bhiwadi</option>
+                                        <option value="745">Bikaner</option>
+                                        <option value="746">Bundi</option>
+                                        <option value="747">Chittaurgarh</option>
+                                        <option value="748">Chomun</option>
+                                        <option value="749">Churu</option>
+                                        <option value="750">Daosa</option>
+                                        <option value="751">Dhaulpur</option>
+                                        <option value="752">Didwana</option>
+                                        <option value="753">Fatehpur</option>
+                                        <option value="754">Ganganagar</option>
+                                        <option value="755">Gangapur</option>
+                                        <option value="756">Hanumangarh</option>
+                                        <option value="757">Hindaun</option>
+                                        <option value="758">Jaipur</option>
+                                        <option value="759">Jaisalmer</option>
+                                        <option value="760">Jalor</option>
+                                        <option value="761">Jhalawar</option>
+                                        <option value="762">Jhunjhunun</option>
+                                        <option value="763">Jodhpur</option>
+                                        <option value="764">Karauli</option>
+                                        <option value="765">Kishangarh</option>
+                                        <option value="766">Kota</option>
+                                        <option value="767">Kuchaman</option>
+                                        <option value="768">Ladnun</option>
+                                        <option value="769">Makrana</option>
+                                        <option value="770">Nagaur</option>
+                                        <option value="771">Nawalgarh</option>
+                                        <option value="772">Nimbahera</option>
+                                        <option value="773">Nokha</option>
+                                        <option value="774">Pali</option>
+                                        <option value="775">Rajsamand</option>
+                                        <option value="776">Ratangarh</option>
+                                        <option value="777">Sardarshahr</option>
+                                        <option value="778">Sawai Madhopur</option>
+                                        <option value="779">Sikar</option>
+                                        <option value="780">Sujangarh</option>
+                                        <option value="781">Suratgarh</option>
+                                        <option value="782">Tonk</option>
+                                        <option value="783">Udaipur</option>
+                                        <option value="784">Alandur</option>
+                                        <option value="785">Ambattur</option>
+                                        <option value="786">Ambur</option>
+                                        <option value="787">Arakonam</option>
+                                        <option value="788">Arani</option>
+                                        <option value="789">Aruppukkottai</option>
+                                        <option value="790">Attur</option>
+                                        <option value="791">Avadi</option>
+                                        <option value="792">Avaniapuram</option>
+                                        <option value="793">Bodinayakkanur</option>
+                                        <option value="794">Chengalpattu</option>
+                                        <option value="795">Dharapuram</option>
+                                        <option value="796">Dharmapuri</option>
+                                        <option value="797">Dindigul</option>
+                                        <option value="798">Erode</option>
+                                        <option value="799">Gopichettipalaiyam</option>
+                                        <option value="800">Gudalur</option>
+                                        <option value="801">Gudiyattam</option>
+                                        <option value="802">Hosur</option>
+                                        <option value="803">Idappadi</option>
+                                        <option value="804">Kadayanallur</option>
+                                        <option value="805">Kambam</option>
+                                        <option value="806">Kanchipuram</option>
+                                        <option value="807">Karur</option>
+                                        <option value="808">Kavundampalaiyam</option>
+                                        <option value="809">Kovilpatti</option>
+                                        <option value="810">Coimbatore</option>
+                                        <option value="811">Krishnagiri</option>
+                                        <option value="812">Kumarapalaiyam</option>
+                                        <option value="813">Kumbakonam</option>
+                                        <option value="814">Kuniyamuthur</option>
+                                        <option value="815">Kurichi</option>
+                                        <option value="816">Madhavaram</option>
+                                        <option value="817">Chennai</option>
+                                        <option value="818">Madurai</option>
+                                        <option value="819">Maduravoyal</option>
+                                        <option value="820">Mannargudi</option>
+                                        <option value="821">Mayiladuthurai</option>
+                                        <option value="822">Mettupalayam</option>
+                                        <option value="823">Mettur</option>
+                                        <option value="824">Nagapattinam</option>
+                                        <option value="825">Nagercoil</option>
+                                        <option value="826">Namakkal</option>
+                                        <option value="827">Nerkunram</option>
+                                        <option value="828">Neyveli</option>
+                                        <option value="829">Pallavaram</option>
+                                        <option value="830">Pammal</option>
+                                        <option value="831">Pannuratti</option>
+                                        <option value="832">Paramakkudi</option>
+                                        <option value="833">Pattukkottai</option>
+                                        <option value="834">Pollachi</option>
+                                        <option value="835">Pudukkottai</option>
+                                        <option value="836">Puliyankudi</option>
+                                        <option value="837">Punamalli</option>
+                                        <option value="838">Rajapalaiyam</option>
+                                        <option value="839">Ramanathapuram</option>
+                                        <option value="840">Salem</option>
+                                        <option value="841">Sankarankoil</option>
+                                        <option value="842">Sivakasi</option>
+                                        <option value="843">Srivilliputtur</option>
+                                        <option value="844">Tambaram</option>
+                                        <option value="845">Tenkasi</option>
+                                        <option value="846">Thanjavur</option>
+                                        <option value="847">Theni Allinagaram</option>
+                                        <option value="848">Thiruthangal</option>
+                                        <option value="849">Thiruvarur</option>
+                                        <option value="850">Thuthukkudi</option>
+                                        <option value="851">Tindivanam</option>
+                                        <option value="852">Tiruchchirappalli</option>
+                                        <option value="853">Tiruchengode</option>
+                                        <option value="854">Tirunelveli</option>
+                                        <option value="855">Tirupathur</option>
+                                        <option value="856">Tiruppur</option>
+                                        <option value="857">Tiruvannamalai</option>
+                                        <option value="858">Tiruvottiyur</option>
+                                        <option value="859">Udagamandalam</option>
+                                        <option value="860">Udumalaipettai</option>
+                                        <option value="861">Valparai</option>
+                                        <option value="862">Vaniyambadi</option>
+                                        <option value="863">Velampalaiyam</option>
+                                        <option value="864">Vellore</option>
+                                        <option value="865">Viluppuram</option>
+                                        <option value="866">Virappanchatram</option>
+                                        <option value="867">Virudhachalam</option>
+                                        <option value="868">Virudunagar</option>
+                                        <option value="869">Agartala</option>
+                                        <option value="870">Agartala MCl</option>
+                                        <option value="871">Badharghat</option>
+                                        <option value="872">Agra</option>
+                                        <option value="873">Aligarh</option>
+                                        <option value="874">Allahabad</option>
+                                        <option value="875">Amroha</option>
+                                        <option value="876">Aonla</option>
+                                        <option value="877">Auraiya</option>
+                                        <option value="878">Ayodhya</option>
+                                        <option value="879">Azamgarh</option>
+                                        <option value="880">Baheri</option>
+                                        <option value="881">Bahraich</option>
+                                        <option value="882">Ballia</option>
+                                        <option value="883">Balrampur</option>
+                                        <option value="884">Banda</option>
+                                        <option value="885">Baraut</option>
+                                        <option value="886">Bareli</option>
+                                        <option value="887">Basti</option>
+                                        <option value="888">Behta Hajipur</option>
+                                        <option value="889">Bela</option>
+                                        <option value="890">Bhadohi</option>
+                                        <option value="891">Bijnor</option>
+                                        <option value="892">Bisalpur</option>
+                                        <option value="893">Biswan</option>
+                                        <option value="894">Budaun</option>
+                                        <option value="895">Bulandshahr</option>
+                                        <option value="896">Chandausi</option>
+                                        <option value="897">Chandpur</option>
+                                        <option value="898">Chhibramau</option>
+                                        <option value="899">Chitrakut Dham</option>
+                                        <option value="900">Dadri</option>
+                                        <option value="901">Deoband</option>
+                                        <option value="902">Deoria</option>
+                                        <option value="903">Etah</option>
+                                        <option value="904">Etawah</option>
+                                        <option value="905">Faizabad</option>
+                                        <option value="906">Faridpur</option>
+                                        <option value="907">Farrukhabad</option>
+                                        <option value="908">Fatehpur</option>
+                                        <option value="909">Firozabad</option>
+                                        <option value="910">Gajraula</option>
+                                        <option value="911">Ganga Ghat</option>
+                                        <option value="912">Gangoh</option>
+                                        <option value="913">Ghaziabad</option>
+                                        <option value="914">Ghazipur</option>
+                                        <option value="915">Gola Gokarannath</option>
+                                        <option value="916">Gonda</option>
+                                        <option value="917">Gorakhpur</option>
+                                        <option value="918">Hapur</option>
+                                        <option value="919">Hardoi</option>
+                                        <option value="920">Hasanpur</option>
+                                        <option value="921">Hathras</option>
+                                        <option value="922">Jahangirabad</option>
+                                        <option value="923">Jalaun</option>
+                                        <option value="924">Jaunpur</option>
+                                        <option value="925">Jhansi</option>
+                                        <option value="926">Kadi</option>
+                                        <option value="927">Kairana</option>
+                                        <option value="928">Kannauj</option>
+                                        <option value="929">Kanpur</option>
+                                        <option value="930">Kanpur Cantonment</option>
+                                        <option value="931">Kasganj</option>
+                                        <option value="932">Khatauli</option>
+                                        <option value="933">Khora</option>
+                                        <option value="934">Khurja</option>
+                                        <option value="935">Kiratpur</option>
+                                        <option value="936">Kosi Kalan</option>
+                                        <option value="937">Laharpur</option>
+                                        <option value="938">Lakhimpur</option>
+                                        <option value="939">Lakhnau</option>
+                                        <option value="940">Lucknow</option>
+                                        <option value="941">Lalitpur</option>
+                                        <option value="942">Loni</option>
+                                        <option value="943">Mahoba</option>
+                                        <option value="944">Mainpuri</option>
+                                        <option value="945">Mathura</option>
+                                        <option value="946">Mau</option>
+                                        <option value="947">Mauranipur</option>
+                                        <option value="948">Mawana</option>
+                                        <option value="949">Meerut</option>
+                                        <option value="950">Mirat Cantonment</option>
+                                        <option value="951">Mirzapur</option>
+                                        <option value="952">Modinagar</option>
+                                        <option value="953">Moradabad</option>
+                                        <option value="954">Mubarakpur</option>
+                                        <option value="955">Mughal Sarai</option>
+                                        <option value="956">Muradnagar</option>
+                                        <option value="957">Muzaffarnagar</option>
+                                        <option value="958">Nagina</option>
+                                        <option value="959">Najibabad</option>
+                                        <option value="960">Nawabganj</option>
+                                        <option value="961">Noida</option>
+                                        <option value="962">Obra</option>
+                                        <option value="963">Orai</option>
+                                        <option value="964">Pilibhit</option>
+                                        <option value="965">Pilkhuwa</option>
+                                        <option value="966">Rae Bareli</option>
+                                        <option value="967">Ramgarh Nagla Kothi</option>
+                                        <option value="968">Rampur</option>
+                                        <option value="969">Rath</option>
+                                        <option value="970">Renukut</option>
+                                        <option value="971">Saharanpur</option>
+                                        <option value="972">Sahaswan</option>
+                                        <option value="973">Sambhal</option>
+                                        <option value="974">Sandila</option>
+                                        <option value="975">Shahabad</option>
+                                        <option value="976">Shahjahanpur</option>
+                                        <option value="977">Shamli</option>
+                                        <option value="978">Sherkot</option>
+                                        <option value="979">Shikohabad</option>
+                                        <option value="980">Sikandarabad</option>
+                                        <option value="981">Sitapur</option>
+                                        <option value="982">Sukhmalpur Nizamabad</option>
+                                        <option value="983">Sultanpur</option>
+                                        <option value="984">Tanda</option>
+                                        <option value="985">Tilhar</option>
+                                        <option value="986">Tundla</option>
+                                        <option value="987">Ujhani</option>
+                                        <option value="988">Unnao</option>
+                                        <option value="989">Varanasi</option>
+                                        <option value="990">Vrindavan</option>
+                                        <option value="991">Dehradun</option>
+                                        <option value="992">Dehra Dun Cantonment</option>
+                                        <option value="993">Gola Range</option>
+                                        <option value="994">Haldwani</option>
+                                        <option value="995">Haridwar</option>
+                                        <option value="996">Kashipur</option>
+                                        <option value="997">Pithoragarh</option>
+                                        <option value="998">Rishikesh</option>
+                                        <option value="999">Rudrapur</option>
+                                        <option value="1000">Rurki</option>
+                                        <option value="1179">Bareilly</option>
+                                        <option value="1002">Gurgaon</option>
+                                        <option value="1174">Vasco Da Gama</option>
+                                        <option value="1168">Trivandrum</option>
+                                        <option value="1170">Kandla</option>
+                                        <option value="1169">Tirupur</option>
+                                        <option value="1172">Kurukshetra</option>
+                                        <option value="1173">Hoogly</option>
+                                        <option value="1175">Pathanamthitta</option>
+                                        <option value="1176">Pantnagar</option>
+                                        <option value="1207">Ankleshwar</option>
+                                        <option value="1235">Vikarabad</option>
+                                        <option value="1208">Bharukh</option>
+                                        <option value="1209">Gir Gujarat</option>
+                                        <option value="1210">dalhousie</option>
+                                        <option value="1211">Dharmashala</option>
+                                        <option value="1212">kulu/manali</option>
+                                        <option value="1213">Dharwada</option>
+                                        <option value="1214">Palghat</option>
+                                        <option value="1215">Trivandram</option>
+                                        <option value="1216">Ahmednagar</option>
+                                        <option value="1217">Nasik</option>
+                                        <option value="1218">Aizawal</option>
+                                        <option value="1219">Cuttack</option>
+                                        <option value="1220">Paradeep</option>
+                                        <option value="1221">Rourkela</option>
+                                        <option value="1222">Bhatindra</option>
+                                        <option value="1223">Gangtok</option>
+                                        <option value="1224">Ooty</option>
+                                        <option value="1225">Cuddalore</option>
+                                        <option value="1226">Tirunalveli</option>
+                                        <option value="1227">Tuticorin</option>
+                                        <option value="1228">Roorke</option>
+                                        <option value="1229">Haldia</option>
+                                        <option value="1230">Siliguri</option>
+                                        <option value="1232">Any Where in India</option>
+                                        <option value="1234">Delhi</option>
+                                    </select>
+                                    -->
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">
+                                    <input type="text" ng-model="user.pincode" required placeholder="{{'PIN_CODE'|translate}}" title="{{'TITLE_PINCODE'|translate}}" class="form-control" id="pin" name="pin" ng-pattern="/^[0-9]{6}$/" />
+                                    <div class="angError" ng-show="empForm.pin.$dirty && empForm.pin.$error.required">
+                                        {{'PIN_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.pin.$dirty && empForm.pin.$invalid">
+                                        {{'PIN_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>   
+                        <hr/>
+
+                        <div class="row">
+                            <h4>Professional Details</h4>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">                                    
+                                    <input required type="number" placeholder="Experience in years" ng-model="user.experience" class="form-control" id="workex" name="workex" />
+                                    <div class="angError" ng-show="empForm.workex.$dirty && empForm.workex.$error.required">
+                                        {{'EXP_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.workex.$dirty && empForm.workex.$invalid">
+                                        {{'EXP_INV'| translate}}</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <div style="margin-top: 15px">                                    
+                                    <input type="text" required placeholder="Resume headline" ng-model="user.resumeheadline" class="form-control" title="Only Alphabates. Max 20 charachter." id="resume_headline" name="resumeHeadline" pattern="[a-zA-Z\s]{15,30}$" />
+                                    <div class="angError" ng-show="empForm.resumeHeadline.$dirty && empForm.resumeHeadline.$error.required">
+                                        {{'RHL_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.resumeHeadline.$dirty && empForm.resumeHeadline.$invalid">
+                                        {{'RHL_INV'| translate}}</div>
+
+                                </div></div>
+                        </div>
+                        <div class="row">
+                            <h4>Professional Details</h4>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div style="margin-top: 15px">    
+                                    <textarea required pattern="[a-zA-Z\s]{45,360}$" placeholder="Skill Sets" ng-model="user.skills" class="form-control" id="skills" name="skills"></textarea>
+                                    <div class="angError" ng-show="empForm.skills.$dirty && empForm.skills.$error.required">
+                                        {{'SKILLS_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.skills.$dirty && empForm.skills.$invalid">
+                                        {{'SKILLS_INV'| translate}}</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div style="margin-top: 15px"> 
+                                    <img alt="captcha" src="api/captcha" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div style="margin-top: 15px"> 
+                                    <input type="text" required placeholder="Captcha" ng-model="user.captcha" class="form-control" title="9 digits alpha numeric" id="resume_headline" name="captcha" ng-pattern="/^[a-zA-Z0-9\s]{9}$/" />
+                                    <div class="angError" ng-show="empForm.captcha.$dirty && empForm.captcha.$error.required">
+                                        {{'CAP_REQ'| translate}}</div>
+                                    <div class="angError" ng-show="empForm.captcha.$dirty && empForm.captcha.$invalid">
+                                        {{'CAP_INV'| translate}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input style="margin-top: 15px" type="button" ng-disabled="empForm.$invalid" class="btn btn-default" value="{{'REGISER_ME'|translate}}" name="saveProfile" ng-click="signupUser()"/>
+                            <a class="reset_pass" href="#/login">{{'Back to login'| translate}}</a>
+                        </div>       
+
+                        <div class="clearfix"></div>
+                        <div class="separator"> </div>
+                        <div class="clearfix"></div>  
+
+                    </div>
+
+                </div> 
+            </form>
+
+
+            <p> {{'COPY_RIGHT'|translate}}</p>
+            <!-- /. PAGE INNER  -->
+            <!-- /. PAGE INNER  -->
+        </div>
+
+    </section>
+</div>
